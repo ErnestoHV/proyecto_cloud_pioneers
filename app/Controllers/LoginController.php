@@ -10,4 +10,9 @@ class LoginController extends BaseController
         echo "<h1>LoginController</h1>";
         print_r($this->session);
     }
+
+    public function show()
+    {
+        echo "<h2>Función show()</h2>";
+    }
 }
