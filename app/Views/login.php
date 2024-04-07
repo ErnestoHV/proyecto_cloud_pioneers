@@ -104,7 +104,7 @@
 </head>
 <body>
     <div class="name-stripe">
-        <img src="./logos_LIEE/LIEE_Logo.png" alt="Logo y nombre del LIEE"/>
+        <img src="LIEE_Logo.png" alt="Logo y nombre del LIEE"/>
         
     </div>
     <div class="login-box">
