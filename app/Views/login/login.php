@@ -71,12 +71,12 @@
             color: #fec503;
             font-size: 12px;
         }
-        .login-box form a 
+        .login-box form button 
         {
             position: relative;
             display: inline-block;
             padding: 10px 20px;
-            color: #fec503;
+            
             font-size: 16px;
             text-decoration: none;
             text-transform: uppercase;
@@ -85,7 +85,7 @@
             margin-top: 40px;
             letter-spacing: 4px
         }
-        .login-box a:hover
+        .login-box button:hover
         {
             background: #fec503;
             color: #fff;
@@ -95,7 +95,7 @@
                         0 0 50px #fec503,
                         0 0 100px #fec503;
         }
-        .login-box a span
+        .login-box button span
         {
             position: absolute;
             display: block;
@@ -109,22 +109,22 @@
     </div>
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+        <form class="user" method="POST" onsubmit="return validarLogin()" action="<?php echo base_url(); ?>LoginController/loginAuth">
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input type="text" name="uEmail" id="uEmail" required="">
                 <label>Correo electrónico</label>
             </div>
             <div class="user-box">
-                <input type="password" name="" required="">
+                <input type="password" name="uPassword" id="uPassword" required="">
                 <label>Contraseña</label>
             </div>
-            <a href="#">
+            <button id="login">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 Ingresar
-            </a>
+    </button>
 
             <a>
             <span></span>
@@ -134,5 +134,22 @@
             </a>
         </form>
     </div>
+    <script>
+        function validarLogin()
+        {
+            var input_mat = document.getElementById("username").value;
+            var contraseña = document.getElementById("uPassword").value;
+
+            if(input_mat == "" || contraseña == "")
+            {
+                var mensaje = "Por favor, rellene todos los campos";
+			    var alerta = document.createElement("div");
+			    alerta.className = "alerta";
+			    alerta.innerHTML = mensaje;
+			    document.getElementById("alerta_pass").appendChild(alerta);
+			    return false;
+            }
+        }
+    </script>
 </body>
 </html>

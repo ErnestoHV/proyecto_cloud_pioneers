@@ -11,7 +11,7 @@ class AdminController extends BaseController
         echo "<h1>AdminController</h1>";
        
         echo view ('plantilla/header');
-        echo view ('administrador/vista_administrador_cruds');
+        echo view ('administrador/vista_administrador');
         echo view ('plantilla/footer');
     }
 }
