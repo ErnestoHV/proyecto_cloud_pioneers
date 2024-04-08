@@ -15,7 +15,7 @@ class LoginController extends Controller
         return view ('login/login');
     }
 
-    public function loginAuth()
+    public function logIn()
     {
         $session = session();
         $userModel = new UserModel();
@@ -24,10 +24,13 @@ class LoginController extends Controller
 
         $data = $userModel->where('correo_electronico', $email)->first();
         
-        if($data){
-            $pass = $data['contraseña'];
-            if(password_verify($password, $pass)){
-                $ses_data = [
+        if($data)
+        {
+            $pass = $data['contrasena_usuario'];
+            if($pass == $password)
+            {
+                $ses_data = 
+                [
                     'id_usuario' => $data['id_usuario'],
                     'email' => $data['correo_electronico'],
                     'nombre_usuario' => $data['nombre_usuario'],
@@ -63,19 +66,21 @@ class LoginController extends Controller
                     }
                 }
             
-            }else{
+            }
+            else
+            {
                 $session->setFlashdata('msg', 'La contraseña no es válida.');
-                return redirect()->to(base_url('login/login'));
+                return redirect()->to(base_url('error_404'));
             }
         }
         else
         {
-            $session->setFlashdata('msg', 'El email/contraseña introducidos no son válidos.');
-            return redirect()->to(base_url('login/login'));
+            $session->setFlashdata('msg', 'El email introducidos no son válidos.');
+            return redirect()->to(base_url('view/error'));
         }
 
     }
-    public function logout()
+    public function logOut()
     {
         $session = session();
         $session->remove('email','nombre_usuario','apellidos_usuario','id_rol');

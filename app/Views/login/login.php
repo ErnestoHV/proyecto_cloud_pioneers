@@ -109,7 +109,7 @@
     </div>
     <div class="login-box">
         <h2>Login</h2>
-        <form class="user" method="POST" onsubmit="return validarLogin()" action="<?php echo base_url(); ?>LoginController/loginAuth">
+        <form class="user" method="POST" onsubmit="return validarLogin()" action="<?php echo base_url(); ?>LoginController/logIn">
             <div class="user-box">
                 <input type="text" name="uEmail" id="uEmail" required="">
                 <label>Correo electrónico</label>
@@ -124,7 +124,7 @@
                 <span></span>
                 <span></span>
                 Ingresar
-    </button>
+            </button>
 
             <a>
             <span></span>
@@ -137,10 +137,10 @@
     <script>
         function validarLogin()
         {
-            var input_mat = document.getElementById("username").value;
+            var email = document.getElementById("uEmail").value;
             var contraseña = document.getElementById("uPassword").value;
 
-            if(input_mat == "" || contraseña == "")
+            if(email == "" || contraseña == "")
             {
                 var mensaje = "Por favor, rellene todos los campos";
 			    var alerta = document.createElement("div");
