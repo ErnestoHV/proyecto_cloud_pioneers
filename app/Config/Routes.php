@@ -29,5 +29,7 @@ $routes->get('login', 'LoginController::index');
 
 
 //Rutas para direccionar al usuario a la vista de Administrador
-$routes->get('/AdminController', 'AdminController::index');
-// $routes->get('AdminController', 'AdminController::index');
+$routes->get('/administrador/vista_administrador', 'AdminController::index');
+
+//Rutas para direccionar al usuario a la vista de Responsable de ensayos
+$routes->get('/responsable_ensayos/vista_responsable_ensayos', 'Responsable_ensayoController::index');
