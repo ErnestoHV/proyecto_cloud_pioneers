@@ -42,25 +42,25 @@ class LoginController extends Controller
 
                 if($data['id_rol'] == 1 || $data['id_rol'] == 6)
                 {
-                    return redirect()->to(base_url('supervisor/vista_supervisor'));  
+                    return redirect()->to(base_url('supervisor/vista_supervisor')); //Ya funciona
                 }
                 else
                 {
                     if($data['id_rol'] == 2)
                     {
-                        return redirect()->to(base_url('responsable_ensayos/vista_responsable_ensayo'));
+                        return redirect()->to(base_url('responsable_ensayos/vista_responsable_ensayos')); //Ya funciona
                     }
                     else
                     {
                         if($data['id_rol'] == 3 || $data['id_rol'] == 4 || $data['id_rol'] == 7)
                         {
-                            return redirect()->to(base_url('tecnico_laboratorio/vista_tecnico_laboratorio'));
+                            return redirect()->to(base_url('tecnico_laboratorio/vista_tecnico_laboratorio')); //Ya funciona
                         }
                         else
                         {
                             if ($data['id_rol'] == 5)
                             {
-                                return redirect()->to(base_url('administrador/vista_administrador'));
+                                return redirect()->to(base_url('administrador/vista_administrador')); //Ya funciona
                             }
                         }
                     }
