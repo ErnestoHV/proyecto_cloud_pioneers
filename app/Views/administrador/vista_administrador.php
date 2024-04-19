@@ -1,3 +1,5 @@
+<?php echo $this->extend('plantilla/plantilla_administrador');?>
+<?php echo $this->section('vista_administrador');?>
 <h4>Hola esto es un H4</h4>
 <table>
     <thead>
@@ -25,6 +27,8 @@
             <th>3</th>
             <td>Larry the Bird</td>
             <td>@twitter</td>
+            <td>Hola </td>
         </tr>
   </tbody>
 </table>
+<?php echo $this->endSection();?>
