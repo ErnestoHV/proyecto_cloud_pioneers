@@ -3,7 +3,6 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\UserModel;
-use App\Controller\AdminModel;
 
 class AdminController extends BaseController
 {
@@ -24,16 +23,31 @@ class AdminController extends BaseController
 
     public function admin_cruds_usuarios()
     {
+        $db = \Config\Database::connect();
+        $query = $db->query("SELECT id_usuario,id_rol,contrasena_usuario,correo_electronico,nombre_usuario,apellidos_usuario,fecha_creacion_usuario,fecha_modificacion_usuario from usuario");
+
+        $resultado_usuarios = $query->getResult();
+
+        $datos_usuarios =['usuarios'=>$resultado_usuarios];
+
         echo 'Route= /AdminController::admin_cruds_usuarios || Controller=AdminController';
         echo "<h1>AdminController</h1>";
-        return view('administrador/vista_administrador_cruds_usuarios');
+        return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
     }
 
-    public function admin_procesos()
+    public function admin_servicios()
     {
-        echo 'Route= /AdminController::admin_procesos || Controller=AdminController';
+        $db = \Config\Database::connect();
+        $query = $db->query("SELECT * from servicio");
+
+        $resultado_servicios = $query->getResult();
+
+        $datos_servicios =['servicios'=>$resultado_servicios];
+
+
+        echo 'Route= /AdminController::admin_servicios || Controller=AdminController';
         echo "<h1>AdminController</h1>";
-        return view('administrador/vista_administrador_procesos');
+        return view('administrador/vista_administrador_servicios',$datos_servicios);
     }
 
 }

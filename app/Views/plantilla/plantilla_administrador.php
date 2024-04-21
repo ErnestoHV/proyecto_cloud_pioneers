@@ -36,7 +36,7 @@
                                 </ul>
                             <li>
                             <li>
-                                    <a href="vista_administrador_procesos" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Procesos</span></a>
+                                    <a href="vista_administrador_servicios" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Servicios</span></a>
                             </li>
                         </ul>
                     </li>

@@ -20,8 +20,6 @@ $routes->get('/', 'LoginController::index');
 
 
 //Rutas para direccionar al usuario a la vista del Login
-// $routes->get('/LoginController', 'LoginController::index');
-// $routes->get('/LoginController', 'LoginController::show');
 $routes->match(['get', 'post'], 'LoginController/logIn', 'LoginController::logIn');
 $routes->get('salir', 'LoginController::logOut');
 $routes->get('login', 'LoginController::index');
@@ -35,8 +33,8 @@ $routes->get('/administrador/vista_administrador', 'AdminController::index');
 $routes->get('/administrador/vista_administrador_cruds_clientes', 'AdminController::admin_cruds_clientes');
 ///Rutas para direccionar al usuario a la vista de CRUDS de usuarios dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_usuarios', 'AdminController::admin_cruds_usuarios');
-///Rutas para direccionar al usuario a la vista de procesos de Administrador
-$routes->get('/administrador/vista_administrador_procesos', 'AdminController::admin_procesos');
+///Rutas para direccionar al usuario a la vista de servicios de Administrador
+$routes->get('/administrador/vista_administrador_servicios', 'AdminController::admin_servicios');
 
 
 
