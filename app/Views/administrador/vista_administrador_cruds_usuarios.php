@@ -16,13 +16,13 @@
     <tbody>
         <?php foreach ($usuarios as $usuario):?>
             <tr>
-                <td><?php echo $usuario->id_usuario?></td>
-                <td><?php echo $usuario->id_rol?></td>
-                <td><?php echo $usuario->correo_electronico?></td>
-                <td><?php echo $usuario->nombre_usuario?></td>
-                <td><?php echo $usuario->apellidos_usuario?></td>
-                <td><?php echo $usuario->fecha_creacion_usuario?></td>
-                <td><?php echo $usuario->fecha_modificacion_usuario?></td>
+                <td><?php echo $usuario['id_usuario'];?></td>
+                <td><?php echo $usuario['id_rol'];?></td>
+                <td><?php echo $usuario['correo_electronico'];?></td>
+                <td><?php echo $usuario['nombre_usuario'];?></td>
+                <td><?php echo $usuario['apellidos_usuario'];?></td>
+                <td><?php echo $usuario['fecha_creacion_usuario'];?></td>
+                <td><?php echo $usuario['fecha_modificacion_usuario'];?></td>
             </tr>
         <?php endforeach;?>
     </tbody>

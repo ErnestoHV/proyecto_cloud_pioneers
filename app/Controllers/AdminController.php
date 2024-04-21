@@ -26,7 +26,7 @@ class AdminController extends BaseController
         $db = \Config\Database::connect();
         $query = $db->query("SELECT id_usuario,id_rol,contrasena_usuario,correo_electronico,nombre_usuario,apellidos_usuario,fecha_creacion_usuario,fecha_modificacion_usuario from usuario");
 
-        $resultado_usuarios = $query->getResult();
+        $resultado_usuarios = $query->getResultArray();
 
         $datos_usuarios =['usuarios'=>$resultado_usuarios];
 
@@ -40,7 +40,7 @@ class AdminController extends BaseController
         $db = \Config\Database::connect();
         $query = $db->query("SELECT * from servicio");
 
-        $resultado_servicios = $query->getResult();
+        $resultado_servicios = $query->getResultArray();
 
         $datos_servicios =['servicios'=>$resultado_servicios];
 
