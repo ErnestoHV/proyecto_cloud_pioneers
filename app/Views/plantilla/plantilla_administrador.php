@@ -19,24 +19,35 @@
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
                                 <a href="vista_administrador" class="nav-link text-warning align-middle px-0" >
-                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Principal</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-warning px-0 align-middle">
-                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">CRUD</span>
                                 </a>
                                 <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li class="w-100">
-                                        <a href="#" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
+                                        <a href="vista_administrador_cruds_clientes" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
+                                        <a href="vista_administrador_cruds_usuarios" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Usuarios</span></a>
+                                    </li>
+                                </ul>
+                            <li>
+                            <li>
+                                    <a href="vista_administrador_procesos" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Procesos</span></a>
                             </li>
                         </ul>
                     </li>
                         </ul>
                     </div>
+                </div>
+                <div class="column py-3">
+                    Contenido...
+                    <?php
+                        echo $this->renderSection('vista_administrador');
+                    ?>
                 </div>
             </div>
         </div>
