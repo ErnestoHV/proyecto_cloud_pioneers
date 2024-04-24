@@ -8,8 +8,8 @@ class AdminController extends BaseController
 {
     public function index()
     {
-        echo 'Route= /AdminController::index || Controller=AdminController';
-        echo "<h1>AdminController</h1>";
+        // echo 'Route= /AdminController::index || Controller=AdminController';
+        // echo "<h1>AdminController</h1>";
        
         return view('administrador/vista_administrador');
     }
@@ -23,12 +23,14 @@ class AdminController extends BaseController
 
     public function admin_cruds_usuarios()
     {
-        $db = \Config\Database::connect();
-        $query = $db->query("SELECT id_usuario,id_rol,contrasena_usuario,correo_electronico,nombre_usuario,apellidos_usuario,fecha_creacion_usuario,fecha_modificacion_usuario from usuario");
+        // $db = \Config\Database::connect();
+        // $query = $db->query("SELECT id_usuario,id_rol,contrasena_usuario,correo_electronico,nombre_usuario,apellidos_usuario,fecha_creacion_usuario,fecha_modificacion_usuario from usuario");
 
-        $resultado_usuarios = $query->getResultArray();
+        // $resultado_usuarios = $query->getResultArray();
 
-        $datos_usuarios =['usuarios'=>$resultado_usuarios];
+        // $datos_usuarios =['usuarios'=>$resultado_usuarios];
+        $UserModel = new UserModel();
+        $UserModel ->findAll(); 
 
         echo 'Route= /AdminController::admin_cruds_usuarios || Controller=AdminController';
         echo "<h1>AdminController</h1>";

@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Administrador - Panel</title>
+        <script src="https://unpkg.com/feather-icons"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body class="bg-light">
-        <h3>Hello, world!</h3>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <div class="container-fluid">
             <div class="row flex-nowrap">
@@ -19,24 +19,24 @@
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
                                 <a href="vista_administrador" class="nav-link text-warning align-middle px-0" >
-                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Principal</span>
+                                    <i data-feather="home"></i> <span class="ms-1 d-none d-sm-inline">Principal</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-warning px-0 align-middle">
-                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">CRUD</span>
+                                    <i data-feather="database"></i> <span class="ms-1 d-none d-sm-inline">CRUD</span>
                                 </a>
                                 <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li class="w-100">
-                                        <a href="vista_administrador_cruds_clientes" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Clientes</span></a>
+                                        <a href="vista_administrador_cruds_clientes" class="nav-link text-warning px-0"> <i data-feather="book"></i> <span class="d-none d-sm-inline">Clientes</span></a>
                                     </li>
                                     <li>
-                                        <a href="vista_administrador_cruds_usuarios" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Usuarios</span></a>
+                                        <a href="vista_administrador_cruds_usuarios" class="nav-link text-warning px-0"> <i data-feather="users"></i> <span class="d-none d-sm-inline">Usuarios</span></a>
                                     </li>
                                 </ul>
                             <li>
                             <li>
-                                    <a href="vista_administrador_servicios" class="nav-link text-warning px-0"> <span class="d-none d-sm-inline">Servicios</span></a>
+                                    <a href="vista_administrador_servicios" class="nav-link text-warning px-0"> <i data-feather="sidebar"></i> <span class="d-none d-sm-inline">Servicios</span></a>
                             </li>
                         </ul>
                     </li>
@@ -54,5 +54,8 @@
         <footer>
             Este es un footer
         </footer>
+        <script>
+            feather.replace();
+        </script>
     </body>
 </html>
