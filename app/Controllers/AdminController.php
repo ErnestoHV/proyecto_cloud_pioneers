@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\UserModel;
+use App\Models\ServicioModel;
 
 class AdminController extends BaseController
 {
@@ -16,8 +17,8 @@ class AdminController extends BaseController
 
     public function admin_cruds_clientes()
     {
-        echo 'Route= /AdminController::admin_cruds_clientes || Controller=AdminController';
-        echo "<h1>AdminController</h1>";
+        // echo 'Route= /AdminController::admin_cruds_clientes || Controller=AdminController';
+        // echo "<h1>AdminController</h1>";
         return view('administrador/vista_administrador_cruds_clientes');
     }
 
@@ -33,23 +34,29 @@ class AdminController extends BaseController
         $resultado_usuarios = $UserModel->findAll(); 
         
         $datos_usuarios =['usuarios'=>$resultado_usuarios];
-        echo 'Route= /AdminController::admin_cruds_usuarios || Controller=AdminController';
-        echo "<h1>AdminController</h1>";
+        // echo 'Route= /AdminController::admin_cruds_usuarios || Controller=AdminController';
+        // echo "<h1>AdminController</h1>";
         return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
     }
 
     public function admin_servicios()
     {
-        $db = \Config\Database::connect();
-        $query = $db->query("SELECT * from servicio");
+        // $db = \Config\Database::connect();
+        // $query = $db->query("SELECT * from servicio");
 
-        $resultado_servicios = $query->getResultArray();
+        // $resultado_servicios = $query->getResultArray();
 
+        // $datos_servicios =['servicios'=>$resultado_servicios];
+
+
+        // echo 'Route= /AdminController::admin_servicios || Controller=AdminController';
+        // echo "<h1>AdminController</h1>";
+
+        $ServicioModel = new ServicioModel();
+        $resultado_servicios = $ServicioModel->findAll(); 
+        
         $datos_servicios =['servicios'=>$resultado_servicios];
 
-
-        echo 'Route= /AdminController::admin_servicios || Controller=AdminController';
-        echo "<h1>AdminController</h1>";
         return view('administrador/vista_administrador_servicios',$datos_servicios);
     }
 
