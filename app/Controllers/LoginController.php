@@ -86,6 +86,6 @@ class LoginController extends Controller
         $session->remove('email','nombre_usuario','apellidos_usuario','id_rol');
         session_destroy();
 
-        return redirect()->to(base_url('login/login'));
+        return redirect()->to(base_url('login'));
     }
 }

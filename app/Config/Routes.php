@@ -21,7 +21,8 @@ $routes->get('/', 'LoginController::index');
 
 //Rutas para direccionar al usuario a la vista del Login
 $routes->match(['get', 'post'], 'LoginController/logIn', 'LoginController::logIn');
-$routes->get('salir', 'LoginController::logOut');
+//Rutas para direccionar al usuario a la vista del Login una vez que cerró la sesión
+$routes->get('LoginController/logOut', 'LoginController::logOut');
 $routes->get('login', 'LoginController::index');
 
 ///////////////////////////////////////////////////////////////

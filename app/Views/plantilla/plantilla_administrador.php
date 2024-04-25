@@ -23,10 +23,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-warning px-0 align-middle">
+                                <a href="#menu_cruds" data-bs-toggle="collapse" class="nav-link text-warning px-0 align-middle">
                                     <i data-feather="database"></i> <span class="ms-1 d-none d-sm-inline">CRUD</span>
                                 </a>
-                                <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                <ul class=" show nav flex-column ms-1" id="menu_cruds" data-bs-parent="#menu">
                                     <li class="w-100">
                                         <a href="vista_administrador_cruds_clientes" class="nav-link text-warning px-0"> <i data-feather="book"></i> <span class="d-none d-sm-inline">Clientes</span></a>
                                     </li>
@@ -38,9 +38,18 @@
                             <li>
                                     <a href="vista_administrador_servicios" class="nav-link text-warning px-0"> <i data-feather="sidebar"></i> <span class="d-none d-sm-inline">Servicios</span></a>
                             </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>
+                                <a class="nav-link text-warning px-0" href="<?php echo base_url(); ?>LoginController/logOut">
+                                    <i data-feather="log-out"></i> Cerrar sesión
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                        </ul>
+                        </ul>  
                     </div>
                 </div>
                 <div class="column py-3">
@@ -51,9 +60,6 @@
                 </div>
             </div>
         </div>
-        <footer>
-            Este es un footer
-        </footer>
         <script>
             feather.replace();
         </script>

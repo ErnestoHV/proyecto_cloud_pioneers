@@ -28,10 +28,11 @@ class AdminController extends BaseController
 
         // $resultado_usuarios = $query->getResultArray();
 
-        // $datos_usuarios =['usuarios'=>$resultado_usuarios];
+        
         $UserModel = new UserModel();
-        $UserModel ->findAll(); 
-
+        $resultado_usuarios = $UserModel->findAll(); 
+        
+        $datos_usuarios =['usuarios'=>$resultado_usuarios];
         echo 'Route= /AdminController::admin_cruds_usuarios || Controller=AdminController';
         echo "<h1>AdminController</h1>";
         return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
