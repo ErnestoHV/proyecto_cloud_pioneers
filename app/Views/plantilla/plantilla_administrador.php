@@ -39,9 +39,11 @@
                                 </ul>
                             <li>
                             <li>
-                                    <a href="vista_administrador_servicios" class="nav-link text-warning px-0"> <i data-feather="sidebar"></i> <span class="d-none d-sm-inline">Servicios</span></a>
+                                <a href="vista_administrador_servicios" class="nav-link text-warning px-0"> <i data-feather="sidebar"></i> <span class="d-none d-sm-inline">Servicios</span></a>
                             </li>
-                            <li></li>
+                            <li>
+                                <a href="vista_administrador_solicitudes" class="nav-link text-warning px-0"> <i data-feather="book-open"></i> <span class="d-none d-sm-inline">Solicitudes</span></a>
+                            </li>
                             <li></li>
                             <li></li>
                             <li></li>

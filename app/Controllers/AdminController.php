@@ -4,6 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\ServicioModel;
+use App\Models\SolicitudModel;
 
 class AdminController extends BaseController
 {
@@ -58,6 +59,16 @@ class AdminController extends BaseController
         $datos_servicios =['servicios'=>$resultado_servicios];
 
         return view('administrador/vista_administrador_servicios',$datos_servicios);
+    }
+
+    public function admin_solicitudes()
+    {
+        $SolicitudModel = new SolicitudModel();
+        $resultado_solicitudes = $SolicitudModel->findAll(); 
+        
+        $datos_solicitudess =['solicitudes'=>$resultado_solicitudes];
+
+        return view('administrador/vista_administrador_solicitudes',$datos_solicitudess);
     }
 
 }
