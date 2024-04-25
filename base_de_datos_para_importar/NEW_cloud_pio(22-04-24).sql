@@ -272,3 +272,28 @@ INSERT INTO `estado` (`id_estado`, `nombre_estado`, `fecha_creacion_estado`, `fe
 (NULL, 'Entrega de informe', NULL, NULL, NULL, 1),
 (NULL, 'Finalización de servicio', NULL, NULL, NULL, 1),
 (NULL, 'Cierre de servicio', NULL, NULL, NULL, 1);
+
+CREATE TRIGGER generar_folio_despues_insert
+AFTER INSERT ON solicitud
+FOR EACH ROW
+BEGIN
+    SET @anio VARCHAR(2);
+    SET @mes VARCHAR(2);
+	  SET @consecutivo VARCHAR(2);
+    SET @nuevo_folio VARCHAR(6);
+
+    -- Extraer el año, mes y número de registro consecutivo de la fecha de creación
+    SET anio = RIGHT(YEAR(NEW.fecha_registro_solicitud), 2);
+    SET mes = LPAD(MONTH(NEW.fecha_registro_solicitud), 2, '0');
+
+    -- Obtener el número de registros dentro del mes
+    SET consecutivo = LPAD((SELECT COUNT(*) + 1 FROM solicitud WHERE YEAR(fecha_registro_solicitud) = YEAR(NEW.fecha_registro_solicitud) AND MONTH(fecha_registro_solicitud) = MONTH(NEW.fecha_registro_solicitud)), 2, '0');
+
+    -- Construir el nuevo folio
+    SET nuevo_folio = CONCAT(anio, mes, consecutivo);
+
+    -- Insertar el nuevo folio en el campo Folio
+    UPDATE solicitud SET folio_solicitud = nuevo_folio WHERE ID = NEW.ID;
+    UPDATE servicio SET folio_solicitud = nuevo_folio WHERE ID = NEW.ID;
+    UPDATE especimen SET folio_solicitud = nuevo_folio WHERE ID = NEW.ID;
+END;

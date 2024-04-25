@@ -5,7 +5,7 @@
     <thead>
         <tr>
             <th>id_usuario</th>						
-            <th>id_rol</th>
+            <th>Rol</th>
             <th>correo_electronico</th>
             <th>nombre_usuario</th>
             <th>apellidos_usuario</th>
@@ -15,15 +15,17 @@
     </thead>
     <tbody>
         <?php foreach ($usuarios as $usuario):?>
+        <?php foreach ($roles as $rol): ?>
             <tr>
                 <td><?php echo $usuario['id_usuario'];?></td>
-                <td><?php echo $usuario['id_rol'];?></td>
+                <td><?php echo $rol['nombre_rol'];?></td>
                 <td><?php echo $usuario['correo_electronico'];?></td>
                 <td><?php echo $usuario['nombre_usuario'];?></td>
                 <td><?php echo $usuario['apellidos_usuario'];?></td>
                 <td><?php echo $usuario['fecha_creacion_usuario'];?></td>
                 <td><?php echo $usuario['fecha_modificacion_usuario'];?></td>
             </tr>
+        <?php endforeach;?>
         <?php endforeach;?>
     </tbody>
 </table>

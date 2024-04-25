@@ -5,6 +5,7 @@ use CodeIgniter\Controller;
 use App\Models\UserModel;
 use App\Models\ServicioModel;
 use App\Models\SolicitudModel;
+use App\Models\RolModel;
 
 class AdminController extends BaseController
 {
@@ -32,9 +33,11 @@ class AdminController extends BaseController
 
         
         $UserModel = new UserModel();
+        $RolModel = new RolModel();
         $resultado_usuarios = $UserModel->findAll(); 
-        
-        $datos_usuarios =['usuarios'=>$resultado_usuarios];
+        $resultado_roles = $RolModel->find();
+
+        $datos_usuarios =['usuarios'=>$resultado_usuarios,'roles'=>$resultado_roles ];
         // echo 'Route= /AdminController::admin_cruds_usuarios || Controller=AdminController';
         // echo "<h1>AdminController</h1>";
         return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
