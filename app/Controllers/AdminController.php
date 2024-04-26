@@ -9,6 +9,7 @@ use App\Models\RolModel;
 use App\Models\DocumentoModel;
 use App\Models\EstadoModel;
 use App\Models\ClienteModel;
+use App\Models\EnsayoModel;
 
 class AdminController extends BaseController
 {
@@ -74,5 +75,14 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_cruds_documentos',$datos_documentos);
     }
 
+    public function admin_cruds_ensayos()
+    {
+        $EnsayoModel = new EnsayoModel();
+        $resultado_ensayos = $EnsayoModel->findAll(); 
+        
+        $datos_ensayos =['ensayos'=>$resultado_ensayos];
+
+        return view('administrador/vista_administrador_cruds_ensayos',$datos_ensayos);
+    }
 
 }
