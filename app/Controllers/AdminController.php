@@ -8,6 +8,7 @@ use App\Models\SolicitudModel;
 use App\Models\RolModel;
 use App\Models\DocumentoModel;
 use App\Models\EstadoModel;
+use App\Models\ClienteModel;
 
 class AdminController extends BaseController
 {
@@ -21,7 +22,11 @@ class AdminController extends BaseController
 
     public function admin_cruds_clientes()
     {
-        return view('administrador/vista_administrador_cruds_clientes');
+        $ClienteModel = new ClienteModel();
+        $resultado_clientes = $ClienteModel->findAll();
+
+        $datos_clientes = ['clientes'=>$resultado_clientes];
+        return view('administrador/vista_administrador_cruds_clientes',$datos_clientes);
     }
 
     public function admin_cruds_usuarios()
