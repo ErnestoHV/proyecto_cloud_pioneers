@@ -1,0 +1,56 @@
+/* solicitud_estilos.css */
+
+.additional-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo1 {
+    margin-right: 20px;
+}
+
+.info-column {
+    flex-grow: 1;
+}
+
+.table-container {
+    margin-bottom: 20px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.form-table th,
+.form-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Agrega más estilos según sea necesario */

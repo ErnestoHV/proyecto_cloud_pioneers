@@ -11,12 +11,22 @@ $routes->set404Override(function()
         $override404 = 'App\Errors::show404';
     });
 
+    $routes->get('/', 'Home::index');
+
 //Ruta para direccionar al usuario a la página por defecto de CodeIgniter4
 // $routes->get('/', 'Home::index');
 
 
 //Ruta para direccionar al usuario a la vista por defecto establecida: Login
-$routes->get('/', 'LoginController::index');
+
+// Ruta para el formulario del cliente
+$routes->get('/solicitud/exito', 'Solicitud::index');
+$routes->post('solicitud', 'Solicitud::guardar');
+
+
+$routes->get('ir_solicitud', 'Solicitud::index1');
+
+
 
 
 //Rutas para direccionar al usuario a la vista del Login

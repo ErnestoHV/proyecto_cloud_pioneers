@@ -26,14 +26,14 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'LIEE_DB',
-        'password'     => '1234',
-        'database'     => 'cloud_pio',
-        'DBDriver'     => 'MySQLi',
-        'DBPrefix'     => '',
-        'pConnect'     => false,
-        'DBDebug'      => true,
+        'hostname'     => 'localhost', // Puede ser 'localhost' o la dirección IP del servidor de base de datos
+        'username'     => 'root', // El nombre de usuario para acceder a la base de datos
+        'password'     => '', // La contraseña para acceder a la base de datos
+        'database'     => 'inaoe', // El nombre de la base de datos a la cual conectar
+        'DBDriver'     => 'MySQLi', // Asegúrate de que el driver corresponda a tu sistema de gestión de base de datos, MySQLi es común para MySQL
+        'DBPrefix'     => '', // Si utilizas un prefijo para las tablas de tu base de datos, indícalo aquí
+        'pConnect'     => false, // TRUE para usar una conexión persistente, FALSE para una conexión normal
+        'DBDebug'      => (ENVIRONMENT !== 'production'), // TRUE para habilitar el modo de depuración de la base de datos en entornos no productivos
         'charset'      => 'utf8',
         'DBCollat'     => 'utf8_general_ci',
         'swapPre'      => '',
@@ -41,8 +41,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
-        'numberNative' => false,
+        'port'         => 3306, // El puerto de tu servidor de base de datos, el puerto predeterminado de MySQL es 3306
     ];
 
     /**
