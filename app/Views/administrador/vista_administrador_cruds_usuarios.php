@@ -1,6 +1,10 @@
 <?php echo $this->extend('plantilla/plantilla_administrador');?>
 <?php echo $this->section('vista_administrador');?>
 
+<div class="row flex-nowrap bg-dark text-light">
+    <button class="btn btn-success" hre><h3>Alta de usuario</h3></button>
+</div>  
+
 <table class="table table-dark table-striped table-bordered text-center" width="0%" cellspacing="0">
     <thead>
         <tr>
