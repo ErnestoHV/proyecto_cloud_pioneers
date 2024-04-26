@@ -23,8 +23,8 @@
                         <td><?php echo $usuario['correo_electronico'];?></td>
                         <td><?php echo $usuario['nombre_usuario'];?></td>
                         <td><?php echo $usuario['apellidos_usuario'];?></td>
-                        <td></td>
-                        <td></td>
+                        <td><i data-feather="edit"></i></td>
+                        <td><i data-feather="trash-2"></i></td>
                     </tr>
                 <?php endif; ?>    
             <?php endforeach;?>

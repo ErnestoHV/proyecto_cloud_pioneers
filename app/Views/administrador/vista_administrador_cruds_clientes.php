@@ -11,6 +11,8 @@
             <th>RFC</th>
             <th>Teléfono</th>
             <th>E-Mail</th>
+            <th>Editar</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody>
@@ -23,8 +25,8 @@
                     <td><?php echo $cliente['rfc_cliente'];?></td>
                     <td><?php echo $cliente['telefono_cliente'];?></td>
                     <td><?php echo $cliente['correo_electronico_cliente'];?></td>
-                    <td></td>
-                    <td></td>
+                    <td><i data-feather="edit"></i></td>
+                    <td><i data-feather="trash-2"></i></td>
                 </tr>
         <?php endforeach;?>
     </tbody>

@@ -15,6 +15,8 @@
             <th>folio_solicitud</th>
             <th>medio_recibo_solicitud</th>
             <th>fecha_registro_solicitud</th>
+            <th>Editar</th>
+            <th>Borar</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +29,8 @@
                 <td><?php echo $solicitud['folio_solicitud'];?></td>
                 <td><?php echo $solicitud['medio_recibo_solicitud'];?></td>
                 <td><?php echo $solicitud['fecha_registro_solicitud'];?></td>
+                <td><i data-feather="edit"></i></td>
+                <td><i data-feather="trash-2"></i></td>
             </tr>
         <?php endforeach;?>
     </tbody>

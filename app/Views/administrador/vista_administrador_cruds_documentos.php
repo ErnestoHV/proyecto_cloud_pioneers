@@ -29,8 +29,8 @@
                         <td><?php echo $documento['descripcion_documento'];?></td>
                         <td><?php echo $documento['link_documento_plantilla'];?></td>
                         <td><?php echo $documento['fecha_carga_documento'];?></td>
-                        <td></td>
-                        <td></td>
+                        <td><i data-feather="edit"></i></td>
+                        <td><i data-feather="trash-2"></i></td>
                     </tr>
                 <?php endif;?>
             <?php endforeach;?>

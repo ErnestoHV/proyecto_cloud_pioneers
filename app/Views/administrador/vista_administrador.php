@@ -1,6 +1,6 @@
 <?php echo $this->extend('plantilla/plantilla_administrador');?>
 <?php echo $this->section('vista_administrador');?>
-<h4>Hola esto es un H4</h4>
+<h1 class="text-center">Administrador</h1>
 <table>
     <thead>
         <tr>

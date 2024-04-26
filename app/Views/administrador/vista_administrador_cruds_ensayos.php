@@ -27,8 +27,8 @@
                 <td><?php echo $ensayo['nombre_ensayo'];?></td>
                 <td><?php echo $ensayo['norma_oficial_mexicana'];?></td>
                 <td><?php echo $ensayo['fecha_creacion_ensayo'];?></td>
-                <td></td>
-                <td></td>
+                <td><i data-feather="edit"></i></td>
+                <td><i data-feather="trash-2"></i></td>
             </tr>
         <?php endforeach;?>
     </tbody>

@@ -281,7 +281,6 @@ INSERT INTO `cliente` ( `nombre_contacto`, `razon_social`, `direccion_cliente`, 
 ('Javier Sánchez', 'Sánchez & Asociados', 'Calle 789, Colonia Sur', 'WXYZ987654TUV', '5554443333', 'javier@example.com', 1),
 ('Sofía Rodríguez', 'Rodríguez S.C.', 'Avenida 012, Colonia Este', 'UVWX456789YZA', '5553332222', 'sofia@example.com', 1),
 ('Carlos Gómez', 'Gómez Ltda.', 'Calle 345, Colonia Oeste', 'BCDE987654FGH', '5552221111', 'carlos@example.com', 1);
-;
 
 CREATE TRIGGER generar_folio_despues_insert
 AFTER INSERT ON solicitud
