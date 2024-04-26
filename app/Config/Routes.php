@@ -34,6 +34,8 @@ $routes->get('/administrador/vista_administrador', 'AdminController::index');
 $routes->get('/administrador/vista_administrador_cruds_clientes', 'AdminController::admin_cruds_clientes');
 ///Rutas para direccionar al usuario a la vista de CRUDS de usuarios dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_usuarios', 'AdminController::admin_cruds_usuarios');
+///Rutas para direccionar al usuario a la vista de CRUDS de documentos dentro de la vista Administrador
+$routes->get('/administrador/vista_administrador_cruds_documentos', 'AdminController::admin_cruds_documentos');
 ///Rutas para direccionar al usuario a la vista de servicios de Administrador
 $routes->get('/administrador/vista_administrador_servicios', 'AdminController::admin_servicios');
 ///Rutas para direccionar al usuario a la vista de solicitudes de Administrador

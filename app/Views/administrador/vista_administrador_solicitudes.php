@@ -5,7 +5,7 @@
     <button class="btn btn-success" hre><h3>Generar solicitud</h3></button>
 </div>   
 
-<table class="table table-bordered text-center" width="0%" cellspacing="0">
+<table class="table table-dark table-striped table-bordered text-center" width="0%" cellspacing="0">
     <thead>
         <tr>
             <th>folio_solicitud</th>						

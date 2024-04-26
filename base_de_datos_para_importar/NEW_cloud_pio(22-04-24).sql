@@ -2,7 +2,7 @@ CREATE TABLE `estado` (
   `id_estado` int(2) NOT NULL AUTO_INCREMENT,
   `nombre_estado` varchar(100),
   `fecha_creacion_estado` datetime NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_estado` datetime,
+  `fecha_modificacion_estado` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_estado` datetime,
   `estado_registro_tabla_estado` int(2),
   PRIMARY KEY (`id_estado`)
@@ -15,7 +15,7 @@ CREATE TABLE `ensayo` (
   `nombre_ensayo` varchar(60),
   `norma_oficial_mexicana` varchar(20),
   `fecha_creacion_ensayo` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_ensayo` datetime,
+  `fecha_modificacion_ensayo` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_ensayo` datetime,
   `estado_registro_ensayo` int(2),
   PRIMARY KEY (`id_ensayo`)
@@ -25,7 +25,7 @@ CREATE TABLE `rol` (
   `id_rol` int(1) NOT NULL AUTO_INCREMENT,
   `nombre_rol` varchar(50),
   `fecha_creacion_rol` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_rol` datetime,
+  `fecha_modificacion_rol` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_rol` datetime,
   `estado_registro_rol` int(2),
   PRIMARY KEY (`id_rol`)
@@ -39,7 +39,7 @@ CREATE TABLE `usuario` (
   `nombre_usuario` varchar(30),
   `apellidos_usuario` varchar(35),
   `fecha_creacion_usuario` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_usuario` datetime,
+  `fecha_modificacion_usuario` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_usuario` datetime,
   `estado_registro_usuario` int(2),
   PRIMARY KEY (`id_usuario`),
@@ -55,7 +55,7 @@ CREATE TABLE `cliente` (
   `telefono_cliente` varchar(15),
   `correo_electronico_cliente` varchar(35),
   `fecha_creacion_cliente` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_cliente` datetime,
+  `fecha_modificacion_cliente` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_cliente` datetime,
   `estado_registro_cliente` int(2),
   PRIMARY KEY (`id_cliente`)
@@ -68,7 +68,7 @@ CREATE TABLE `documento` (
   `descripcion_documento` varchar(150),
   `link_documento_plantilla` varchar(100),
   `fecha_carga_documento` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_documento` datetime,
+  `fecha_modificacion_documento` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_documento` datetime,
   `estado_registro_documento` int(2),
   PRIMARY KEY (`id_documento`),
@@ -89,7 +89,7 @@ CREATE TABLE `solicitud` (
   `regla_de_decision` varchar(40),
   `limites_tolerancia` varchar(100),
   `fecha_registro_solicitud` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_solicitud` datetime,
+  `fecha_modificacion_solicitud` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_solicitud` datetime,
   `estado_registro_solicitud` int(2),
   PRIMARY KEY (`id_solicitud`),
@@ -104,7 +104,7 @@ CREATE TABLE `servicio` (
   `id_estado` int(2),
   `folio_solicitud` int(6),
   `fecha_inicio_servicio` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_fin_servicio` datetime,
+  `fecha_fin_servicio` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_servicio` datetime,
   `estado_registro_servicio` int(2),
   PRIMARY KEY (`id_servicio`),
@@ -148,7 +148,7 @@ CREATE TABLE `especimen` (
   `estado_especimen` varchar(30),
   `aceptacion_especimen` boolean,
   `fecha_registro_especimen` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_especimen` datetime,
+  `fecha_modificacion_especimen` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_especimen` datetime,
   `estado_registro_especimen` int(2),
   PRIMARY KEY (`id_especimen`),
@@ -164,7 +164,7 @@ CREATE TABLE `servicio_documento` (
   `id_documento` int(5),
   `id_usuario` int(2),
   `fecha_creacion_servicio_documento` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_servicio_documento` datetime,
+  `fecha_modificacion_servicio_documento` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_servicio_documento` datetime,
   `link_documento` varchar(60),
   `estado_registro_servicio_documento` int(2),
@@ -179,7 +179,7 @@ CREATE TABLE `solicitud_ensayo` (
   `id_solicitud` int(5),
   `id_ensayo` int(2),
   `fecha_creacion_solicitud_ensayo` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_solicitud_ensayo` datetime,
+  `fecha_modificacion_solicitud_ensayo` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_solicitud_ensayo` datetime,
   `estado_registro_servicio_documento` int(2),
   PRIMARY KEY (`id_solicitud_ensayo`),
@@ -191,7 +191,7 @@ CREATE TABLE `bitacora_servicio` (
   `id_bitacora_servicio` int(3) NOT NULL AUTO_INCREMENT,
   `id_estado` int(2),
   `fecha_registro_bitacora` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_modificacion_bitacora` datetime,
+  `fecha_modificacion_bitacora` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_bitacora` datetime,
   `estado_registro_bitacora` int(2),
   PRIMARY KEY (`id_bitacora_servicio`),
@@ -224,17 +224,29 @@ INSERT INTO `usuario` (`id_usuario`, `id_rol`, `contrasena_usuario`, `correo_ele
 (NULL, '6', 'cloud', 'sup@sup', 'Supervisor', NULL,1),
 (NULL, '7', 'cloud', 'op@op', 'Operador asistente', NULL,1);
 
+/*Tabla ESTADO*/
+
+INSERT INTO `estado` (`id_estado`, `nombre_estado`, `fecha_creacion_estado`, `fecha_modificacion_estado`, `fecha_borrado_estado`, `estado_registro_tabla_estado`) VALUES
+(NULL, 'Solicitud', NULL, NULL, NULL, 1),
+(NULL, 'Factibilidad y cotización', NULL, NULL, NULL, 1),
+(NULL, 'Recepción de ítems', NULL, NULL, NULL, 1),
+(NULL, 'Ejecución de ensayos', NULL, NULL, NULL, 1),
+(NULL, 'Validación de resultados', NULL, NULL, NULL, 1),
+(NULL, 'Entrega de informe', NULL, NULL, NULL, 1),
+(NULL, 'Finalización de servicio', NULL, NULL, NULL, 1),
+(NULL, 'Cierre de servicio', NULL, NULL, NULL, 1);
+
 /*Tabla DOCUMENTO*/
 
-INSERT INTO `documento` (`id_documento`, `nombre_documento`, `descripcion_documento`, `link_documento_plantilla`, `estado_registro_documento`) VALUES
-(NULL, 'INAOE-GCL-IT-OI Identificación de equipos e ítems.pdf', 'Guía para realizar la correcta identificación de los equipos y especímenes bajo prueba.', NULL,1),
-(NULL, 'INAOE-GCL-lT-02-02 Plantilla para la elaboracion del informe de ensayos - LIEE.pdf', 'Documento plantilla usado para la redacción del informe final de ensayos.', NULL,1),
-(NULL, 'INAOE-GCL-PR-07-01 Solicitud de Servicios NOM 030 y 031 (1).pdf', 'Formato proporcionado a los clientes para generar una solicitud de servicio.', NULL,1),
-(NULL, 'INAOE-GCL-PR-07-02 Cotización de servicios LIEE.pdf', 'Formato proporcionado a los clientes donde se estipula la cotización del servicio solicitado, funciona a su vez como contrato.', NULL,1),
-(NULL, 'INAOE-GCL-PR-07-04 orden de servicio (1).pdf', 'Documento donde se indican las diversas pruebas que deben ser realizadas a los especímenes señalados',NULL,1),
-(NULL, 'INAOE-GCL-PR-07-06_Analisis_de_Factibilidad NOM 030 y 31.pdf', 'Documento donde se evalúa la factibilidad de la realización del servicio', NULL,1),
-(NULL, 'INAOE-GCL-PR-07-07 Bitácora_para_recepcion_de_especímenes_bajo_prueba.pdf', 'Documento donde se registra la recepción de los diversos especímenes enviados por los clientes.', NULL,1),
-(NULL, 'INAOE-GCL-PR-22-07 control de foliosn.xlsx', 'Documento guía para la relación entre las diversas fases del proceso y sus documentos asociados.', NULL,1);
+INSERT INTO `documento` (`id_documento`, `nombre_documento`, `descripcion_documento`, `id_estado`, `link_documento_plantilla`, `estado_registro_documento`) VALUES
+(NULL, 'INAOE-GCL-IT-OI Identificación de equipos e ítems.pdf', 'Guía para realizar la correcta identificación de los equipos y especímenes bajo prueba.',3, NULL,1),
+(NULL, 'INAOE-GCL-lT-02-02 Plantilla para la elaboracion del informe de ensayos - LIEE.pdf', 'Documento plantilla usado para la redacción del informe final de ensayos.',6, NULL,1),
+(NULL, 'INAOE-GCL-PR-07-01 Solicitud de Servicios NOM 030 y 031 (1).pdf', 'Formato proporcionado a los clientes para generar una solicitud de servicio.',1, NULL,1),
+(NULL, 'INAOE-GCL-PR-07-02 Cotización de servicios LIEE.pdf', 'Formato proporcionado a los clientes donde se estipula la cotización del servicio solicitado, funciona a su vez como contrato.',2, NULL,1),
+(NULL, 'INAOE-GCL-PR-07-04 orden de servicio (1).pdf', 'Documento donde se indican las diversas pruebas que deben ser realizadas a los especímenes señalados',4,NULL,1),
+(NULL, 'INAOE-GCL-PR-07-06_Analisis_de_Factibilidad NOM 030 y 31.pdf', 'Documento donde se evalúa la factibilidad de la realización del servicio',2, NULL,1),
+(NULL, 'INAOE-GCL-PR-07-07 Bitácora_para_recepcion_de_especímenes_bajo_prueba.pdf', 'Documento donde se registra la recepción de los diversos especímenes enviados por los clientes.',3, NULL,1),
+(NULL, 'INAOE-GCL-PR-22-07 control de foliosn.xlsx', 'Documento guía para la relación entre las diversas fases del proceso y sus documentos asociados.',4, NULL,1);
 
 /*Tabla ENSAYO*/
 
@@ -261,17 +273,6 @@ INSERT INTO `ensayo` (`id_ensayo`, `tipo_ensayo`, `codigo_ensayo`, `nombre_ensay
 (NULL, 'A', '031/8.9', 'Resistencia al choque térmico y a la conmutación', 'NOM 031 ENER 2019',1),
 (NULL, 'A', '031/8.10', 'Resistencia a las descargas atmosféricas', 'NOM 031 ENER 2019',1);
 
-/*Tabla ESTADO*/
-
-INSERT INTO `estado` (`id_estado`, `nombre_estado`, `fecha_creacion_estado`, `fecha_modificacion_estado`, `fecha_borrado_estado`, `estado_registro_tabla_estado`) VALUES
-(NULL, 'Solicitud', NULL, NULL, NULL, 1),
-(NULL, 'Factibilidad y cotización', NULL, NULL, NULL, 1),
-(NULL, 'Recepción de ítems', NULL, NULL, NULL, 1),
-(NULL, 'Ejecución de ensayos', NULL, NULL, NULL, 1),
-(NULL, 'Validación de resultados', NULL, NULL, NULL, 1),
-(NULL, 'Entrega de informe', NULL, NULL, NULL, 1),
-(NULL, 'Finalización de servicio', NULL, NULL, NULL, 1),
-(NULL, 'Cierre de servicio', NULL, NULL, NULL, 1);
 
 CREATE TRIGGER generar_folio_despues_insert
 AFTER INSERT ON solicitud

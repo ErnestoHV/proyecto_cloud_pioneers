@@ -36,6 +36,9 @@
                                     <li>
                                         <a href="vista_administrador_cruds_usuarios" class="nav-link text-warning px-0"> <i data-feather="users"></i> <span class="d-none d-sm-inline">Usuarios</span></a>
                                     </li>
+                                    <li>
+                                        <a href="vista_administrador_cruds_documentos" class="nav-link text-warning px-0"> <i data-feather="file"></i> <span class="d-none d-sm-inline">Documentos</span></a>
+                                    </li>
                                 </ul>
                             <li>
                             <li>
@@ -58,12 +61,11 @@
                     </div>
                 </div>
                 <div class="column py-3">
-                    <div class="row flex-nowrap bg-warning">
+                    <div class="row bg-warning">
                         <h3>
                             <img src="logos_LIEE/LIEE_Logo.png" alt="img" class="img-fluid">LIEE
                         </h3>
                     </div>
-                    Contenido...
                     <?php
                         echo $this->renderSection('vista_administrador');
                     ?>
