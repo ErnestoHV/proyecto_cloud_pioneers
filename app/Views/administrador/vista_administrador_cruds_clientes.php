@@ -1,6 +1,10 @@
 <?php echo $this->extend('plantilla/plantilla_administrador');?>
 <?php echo $this->section('vista_administrador');?>
 
+<div class="row flex-nowrap bg-dark text-light">
+    <button class="btn btn-success" hre><h3>Alta de cliente</h3></button>
+</div>  
+
 <table class="table table-dark table-striped table-bordered text-center" width="0%" cellspacing="0">
     <thead>
         <tr>
@@ -11,6 +15,8 @@
             <th>RFC</th>
             <th>Teléfono</th>
             <th>E-Mail</th>
+            <th>Editar</th>
+            <th>Borrar</th>
         </tr>
     </thead>
     <tbody>
@@ -23,8 +29,8 @@
                     <td><?php echo $cliente['rfc_cliente'];?></td>
                     <td><?php echo $cliente['telefono_cliente'];?></td>
                     <td><?php echo $cliente['correo_electronico_cliente'];?></td>
-                    <td></td>
-                    <td></td>
+                    <td><i data-feather="edit"></i></td>
+                    <td><i data-feather="trash-2"></i></td>
                 </tr>
         <?php endforeach;?>
     </tbody>

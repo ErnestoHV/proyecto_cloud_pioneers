@@ -2,7 +2,7 @@
 <?php echo $this->section('vista_administrador');?>
 
 <div class="row flex-nowrap bg-dark text-light">
-    <button class="btn btn-success" hre><h3>Cargar documento</h3></button>
+    <button class="btn btn-success" hre><h3>Alta de ensayos</h3></button>
 </div>   
 
 <table class="table table-dark table-striped table-bordered text-center" width="0%" cellspacing="0">
@@ -27,8 +27,8 @@
                 <td><?php echo $ensayo['nombre_ensayo'];?></td>
                 <td><?php echo $ensayo['norma_oficial_mexicana'];?></td>
                 <td><?php echo $ensayo['fecha_creacion_ensayo'];?></td>
-                <td></td>
-                <td></td>
+                <td><i data-feather="edit"></i></td>
+                <td><i data-feather="trash-2"></i></td>
             </tr>
         <?php endforeach;?>
     </tbody>

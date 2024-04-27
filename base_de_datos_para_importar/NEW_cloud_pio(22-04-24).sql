@@ -273,15 +273,14 @@ INSERT INTO `ensayo` (`id_ensayo`, `tipo_ensayo`, `codigo_ensayo`, `nombre_ensay
 (NULL, 'A', '031/8.9', 'Resistencia al choque térmico y a la conmutación', 'NOM 031 ENER 2019',1),
 (NULL, 'A', '031/8.10', 'Resistencia a las descargas atmosféricas', 'NOM 031 ENER 2019',1);
 
-INSERT INTO `cliente` ( `nombre_contacto`, `razon_social`, `direccion_cliente`, `rfc_cliente`, `telefono_cliente`, `correo_electronico_cliente`) VALUES
-('Juan Pérez', 'Pérez y Cía.', 'Calle 123, Colonia Centro', 'ABCD123456EFG', '5551234567', 'juan@example.com', 1),
-('María López', 'López S.A.', 'Avenida Principal 456', 'WXYZ987654ABC', '5557654321', 'maria@example.com', 1),
-('Pedro García', 'García Hnos.', 'Calle Secundaria 789', 'MNOQ54321RST', '5556789012', 'pedro@example.com', 1),
-('Ana Martínez', 'Martínez e Hijos', 'Avenida 456, Colonia Norte', 'LMNO123456PQR', '5555555555', 'ana@example.com', 1),
-('Javier Sánchez', 'Sánchez & Asociados', 'Calle 789, Colonia Sur', 'WXYZ987654TUV', '5554443333', 'javier@example.com', 1),
-('Sofía Rodríguez', 'Rodríguez S.C.', 'Avenida 012, Colonia Este', 'UVWX456789YZA', '5553332222', 'sofia@example.com', 1),
-('Carlos Gómez', 'Gómez Ltda.', 'Calle 345, Colonia Oeste', 'BCDE987654FGH', '5552221111', 'carlos@example.com', 1);
-;
+INSERT INTO `cliente` (`id_cliente`,`nombre_contacto`, `razon_social`, `direccion_cliente`, `rfc_cliente`, `telefono_cliente`, `correo_electronico_cliente`,`estado_registro_cliente`) VALUES
+(NULL, 'Juan Pérez', 'Pérez y Cía.', 'Calle 123, Colonia Centro', 'ABCD123456EFG', '5551234567', 'juan@example.com', 1),
+(NULL, 'María López', 'López S.A.', 'Avenida Principal 456', 'WXYZ987654ABC', '5557654321', 'maria@example.com', 1),
+(NULL, 'Pedro García', 'García Hnos.', 'Calle Secundaria 789', 'MNOQ54321RST', '5556789012', 'pedro@example.com', 1),
+(NULL, 'Ana Martínez', 'Martínez e Hijos', 'Avenida 456, Colonia Norte', 'LMNO123456PQR', '5555555555', 'ana@example.com', 1),
+(NULL, 'Javier Sánchez', 'Sánchez & Asociados', 'Calle 789, Colonia Sur', 'WXYZ987654TUV', '5554443333', 'javier@example.com', 1),
+(NULL, 'Sofía Rodríguez', 'Rodríguez S.C.', 'Avenida 012, Colonia Este', 'UVWX456789YZA', '5553332222', 'sofia@example.com', 1),
+(NULL, 'Carlos Gómez', 'Gómez Ltda.', 'Calle 345, Colonia Oeste', 'BCDE987654FGH', '5552221111', 'carlos@example.com', 1);
 
 CREATE TRIGGER generar_folio_despues_insert
 AFTER INSERT ON solicitud
