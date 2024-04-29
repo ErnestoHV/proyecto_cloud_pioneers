@@ -362,7 +362,7 @@ select {
 <body>
     <div class="container">
         <div class="logo">
-        <img src="../img/logo_inaoe.png" alt="Logo"> 
+        <img src="../logos_LIEE/Icono_LIEE.png" alt="Logo"> 
         </div>
         <div class="info-column">
             <h1>Solicitud de Servicios</h1>
@@ -388,7 +388,7 @@ select {
           <!-- Información adicional -->
           <div class="additional-info">
         <div class="logo1">
-        <img src="../img/LIEE-03.png" alt="LIEE-03.png">
+        <img src="../logos_LIEE/LIEE_Logo.png" alt="LIEE-03.png">
         </div>
         <div class="info-column">
             <table>
