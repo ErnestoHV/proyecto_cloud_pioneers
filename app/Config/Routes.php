@@ -69,4 +69,4 @@ $routes->get('/tecnico_laboratorio/vista_tecnico_laboratorio','Tecnico_laborator
 ///////////////////////////////////////////////////////////////
 //////////                Formulario                 //////////
 ///////////////////////////////////////////////////////////////
-$routes->get('/formulario_solicitud_servicio','Formulario_solicitudController::index');
+$routes->get('formulario_solicitud_servicio/formulario_solicitud_servicio','Formulario_solicitudController::index');

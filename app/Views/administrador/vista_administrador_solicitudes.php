@@ -2,7 +2,7 @@
 <?php echo $this->section('vista_administrador');?>
 
 <div class="row flex-nowrap bg-dark text-light">
-    <button class="btn btn-success" hre><h3>Generar solicitud</h3></button>
+    <a class="btn btn-success" method="post" href="../formulario_solicitud_servicio/formulario_solicitud_servicio"><h3>Generar solicitud</h3></a>
 </div>   
 
 <table class="table table-dark table-striped table-bordered text-center" width="0%" cellspacing="0">
