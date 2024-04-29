@@ -72,6 +72,6 @@ $routes->get('/tecnico_laboratorio/vista_tecnico_laboratorio','Tecnico_laborator
 //Ruta para dirigir al formulario de solicitud de servicio 
 $routes->get('formulario_solicitud_servicio/formulario_solicitud_servicio','Formulario_solicitudController::index');
 //Ruta para cargar a BDD el contenido del formulario
-$routes->post('subir_solicitud', 'Formulario_solicitudController::guardar_solicitud');
+$routes->post('subir_solicitud', 'Formulario_solicitudController::subir_solicitud');
 //Ruta para dirigir a la solicitud ya enviada
 $routes->get('formulario_solicitud_servicio/formulario_solicitud_servicio/exito', 'Formulario_solicitudController::index');
