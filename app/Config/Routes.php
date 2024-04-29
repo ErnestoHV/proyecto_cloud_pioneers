@@ -45,12 +45,28 @@ $routes->get('/administrador/vista_administrador_solicitudes', 'AdminController:
 
 
 
-
+///////////////////////////////////////////////////////////////
+//////////          Responsable de ensayo            //////////
+///////////////////////////////////////////////////////////////
 //Rutas para direccionar al usuario a la vista de Responsable de ensayos
 $routes->get('/responsable_ensayos/vista_responsable_ensayos', 'Responsable_ensayoController::index');
 
+
+///////////////////////////////////////////////////////////////
+//////////                Supervisor                 //////////
+///////////////////////////////////////////////////////////////
 //Rutas para direccionar al usuario a la vista de Supervisor
 $routes->get('/supervisor/vista_supervisor','SupervisorController::index');
 
+
+///////////////////////////////////////////////////////////////
+//////////          Técnico de laboratorio           //////////
+///////////////////////////////////////////////////////////////
 //Ruta para direccionar al usuario a la vista de Técnico de laboratorio
 $routes->get('/tecnico_laboratorio/vista_tecnico_laboratorio','Tecnico_laboratorioController::index');
+
+
+///////////////////////////////////////////////////////////////
+//////////                Formulario                 //////////
+///////////////////////////////////////////////////////////////
+$routes->get('/formulario_solicitud_servicio','Formulario_solicitudController::index');
