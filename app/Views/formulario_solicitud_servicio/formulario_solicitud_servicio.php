@@ -383,7 +383,7 @@ select {
             </div>
         </div>
     </div>
-    <form action="<?= base_url('solicitud') ?>" method="POST">
+    <form action="<?= base_url('subir_solicitud') ?>" method="POST">
 
           <!-- Información adicional -->
           <div class="additional-info">
@@ -438,7 +438,7 @@ select {
             <tbody>
                 <tr>
                     <td>Nombre de contacto:</td>
-                    <td><input type="text" name="nombre_del_cliente" value="<?= isset($nombre_del_cliente) ? $nombre_del_cliente : '' ?>" required></td>
+                    <td><input type="text" name="nombre_del_cliente" value="<?= isset($nombre_contacto) ? $nombre_contacto : '' ?>" required></td>
                 </tr>
                 <tr>
                     <td>Razón social:</td>
@@ -446,19 +446,19 @@ select {
                 </tr>
                 <tr>
                     <td>Dirección:</td>
-                    <td><input type="text" name="direccion" value="<?= isset($direccion) ? $direccion : '' ?>" required></td>
+                    <td><input type="text" name="direccion" value="<?= isset($direccion_cliente) ? $direccion_cliente : '' ?>" required></td>
                 </tr>
                 <tr>
                     <td>RFC:</td>
-                    <td><input type="text" name="rfc" value="<?= isset($rfc) ? $rfc : '' ?>" required></td>
+                    <td><input type="text" name="rfc" value="<?= isset($rfc_cliente) ? $rfc_cliente : '' ?>" required></td>
                 </tr>
                 <tr>
                     <td>Teléfono:</td>
-                    <td><input type="text" name="telefono" value="<?= isset($telefono) ? $telefono : '' ?>" required></td>
+                    <td><input type="text" name="telefono" value="<?= isset($telefono_cliente) ? $telefono_cliente : '' ?>" required></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><input type="text" name="e_mail" value="<?= isset($e_mail) ? $e_mail : '' ?>" required></td>
+                    <td><input type="text" name="e_mail" value="<?= isset($correo_electronico_cliente) ? $correo_electronico_cliente : '' ?>" required></td>
                 </tr>
             </tbody>
         </table>
@@ -737,92 +737,92 @@ select {
         </tr>
         <tr>
             <th class="header">Nombre del espécimen bajo prueba</th>
-            <td class="data"><input type="text" placeholder="Nombre_del_espécimen" name="nombre_del_especimen_bajo_prueba" value="<?= isset($nombre_del_especimen_bajo_prueba) ? $nombre_del_especimen_bajo_prueba : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Nombre_del_espécimen" name="nombre_especimen" value="<?= isset($nombre_especimen) ? $nombre_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Descripción</th>
             <td class="data">
-                <input type="checkbox" id="lampara" name="descripcion[]" value="lampara" <?= isset($descripcion) && in_array('lampara', $descripcion) ? 'checked' : '' ?>>
+                <input type="checkbox" id="lampara" name="descripcion[]" value="lampara" <?= isset($descripcion_especimen) && in_array('lampara', $descripcion_especimen) ? 'checked' : '' ?>>
                 <label for="lampara">Lámpara</label><br>
-                <input type="checkbox" id="luminario" name="descripcion[]" value="luminario" <?= isset($descripcion) && in_array('luminario', $descripcion) ? 'checked' : '' ?>>
+                <input type="checkbox" id="luminario" name="descripcion[]" value="luminario" <?= isset($descripcion_especimen) && in_array('luminario', $descripcion_especimen) ? 'checked' : '' ?>>
                 <label for="luminario">Luminario</label>
             </td>
         </tr>
         <tr>
             <th class="header">Uso del espécimen bajo prueba</th>
             <td class="data">
-                <input type="checkbox" id="exterior" name="uso_del_especimen[]" value="exterior" <?= isset($uso_del_especimen) && in_array('exterior', $uso_del_especimen) ? 'checked' : '' ?>>
+                <input type="checkbox" id="exterior" name="uso_del_especimen[]" value="exterior" <?= isset($uso_especimen) && in_array('exterior', $uso_especimen) ? 'checked' : '' ?>>
                 <label for="exterior">Exterior</label><br>
-                <input type="checkbox" id="interior" name="uso_del_especimen[]" value="interior" <?= isset($uso_del_especimen) && in_array('interior', $uso_del_especimen) ? 'checked' : '' ?>>
+                <input type="checkbox" id="interior" name="uso_del_especimen[]" value="interior" <?= isset($uso_especimen) && in_array('interior', $uso_especimen) ? 'checked' : '' ?>>
                 <label for="interior">Interior</label>
             </td>
         </tr>
         <tr>
             <th class="header">Cantidad</th>
-            <td class="data"><input type="text" placeholder="Cantidad" name="Cantidad" value="<?= isset($Cantidad) ? $Cantidad : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Cantidad" name="cantidad_especimen" value="<?= isset($cantidad_especimen) ? $cantidad_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Marca y modelo</th>
-            <td class="data"><input type="text" placeholder="Marca _y_modelo" name="marca_modelo" value="<?= isset($marca_modelo) ? $marca_modelo : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Marca _y_modelo" name="marca_modelo_especimen" value="<?= isset($marca_modelo_especimen) ? $marca_modelo_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Número de serie</th>
-            <td class="data"><input type="text" placeholder="Número_de_serie" name="numero_de_serie" value="<?= isset($numero_de_serie) ? $numero_de_serie : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Número_de_serie" name="numero_serie_especimen" value="<?= isset($numero_serie_especimen) ? $numero_serie_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Tensión eléctrica de operación (V)*</th>
-            <td class="data"><input type="text" placeholder="Tensión_eléctrica_de_operación_(V)*" name="tencion_electrica" value="<?= isset($tencion_electrica) ? $tencion_electrica : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Tensión_eléctrica_de_operación_(V)*" name="tension_electrica_especimen" value="<?= isset($tension_electrica_especimen) ? $tension_electrica_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Potencia eléctrica de operación (W)*</th>
-            <td class="data"><input type="text" placeholder="Potencia_eléctrica_de_operación_(W)*" name="potencia_electrica" value="<?= isset($potencia_electrica) ? $potencia_electrica : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Potencia_eléctrica_de_operación_(W)*" name="potencia_electrica_especimen" value="<?= isset($potencia_electrica_especimen) ? $potencia_electrica_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Valor de flujo luminoso nominal (lm)*</th>
-            <td class="data"><input type="text" placeholder="Valor_de_flujo_luminoso_nominal_(lm)*" name="valor_flujo" value="<?= isset($valor_flujo) ? $valor_flujo : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Valor_de_flujo_luminoso_nominal_(lm)*" name="flujo_luminoso_lm_especimen" value="<?= isset($flujo_luminoso_lm_especimen) ? $flujo_luminoso_lm_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Temperatura de color correlacionada (°K)*</th>
-            <td class="data"><input type="text" placeholder="Temperatura_de_color_correlacionada_(°K)*" name="temperatura_color" value="<?= isset($temperatura_color) ? $temperatura_color : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Temperatura_de_color_correlacionada_(°K)*" name="temperatura_correlacionada_k_especimen" value="<?= isset($temperatura_correlacionada_k_especimen) ? $temperatura_correlacionada_k_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Índice de rendimiento de color*</th>
-            <td class="data"><input type="text" placeholder="Índice_de_rendimiento_de_color*" name="indice_de_rendimiento_color" value="<?= isset($indice_de_rendimiento_color) ? $indice_de_rendimiento_color : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Índice_de_rendimiento_de_color*" name="indice_rendimiento_color_especimen" value="<?= isset($indice_rendimiento_color_especimen) ? $indice_rendimiento_color_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Horas de vida útil de la lámpara (h)*</th>
-            <td class="data"><input type="text" placeholder="Horas_de_vida_útil_de_la_lámpara_(h)*" name="horas_vital" value="<?= isset($horas_vital) ? $horas_vital : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Horas_de_vida_útil_de_la_lámpara_(h)*" name="horas_vida_especimen" value="<?= isset($horas_vida_especimen) ? $horas_vida_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Factor de potencia nominal*</th>
-            <td class="data"><input type="text" placeholder="Factor_de_potencia_nominal*" name="factor_potencia" value="<?= isset($factor_potencia) ? $factor_potencia : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Factor_de_potencia_nominal*" name="	factor_potencia_nominal_especimen" value="<?= isset($factor_potencia_nominal_especimen) ? $factor_potencia_nominal_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Tipo de material de la carcasa</th>
-            <td class="data"><input type="text" placeholder="Tipo_de_material_de_la_carcasa" name="tipo_material_caracasa" value="<?= isset($tipo_material_caracasa) ? $tipo_material_caracasa : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Tipo_de_material_de_la_carcasa" name="material_carcasa_especimen" value="<?= isset($material_carcasa_especimen) ? $material_carcasa_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Tipo de material del reflector</th>
-            <td class="data"><input type="text" placeholder="Tipo_de_material_del_reflector" name="tipo_material_reflector" value="<?= isset($tipo_material_reflector) ? $tipo_material_reflector : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Tipo_de_material_del_reflector" name="material_reflector_especimen" value="<?= isset($material_reflector_especimen) ? $material_reflector_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Tipo de montaje</th>
-            <td class="data"><input type="text" placeholder="Tipo_de_montaje" name="tipo_de_montaje" value="<?= isset($tipo_de_montaje) ? $tipo_de_montaje : '' ?>" required></td>
+            <td class="data"><input type="text" placeholder="Tipo_de_montaje" name="tipo_montaje_especimen" value="<?= isset($tipo_montaje_especimen) ? $tipo_montaje_especimen : '' ?>" required></td>
         </tr>
         <tr>
             <th class="header">Tipo de controlador (drive):</th>
             <td class="data">
-                <input type="checkbox" id="integrada" name="tipo_controlador[]" value="integrada" <?= isset($tipo_controlador) && in_array('integrada', $tipo_controlador) ? 'checked' : '' ?>>
+                <input type="checkbox" id="integrada" name="tipo_controlador_drive[]" value="integrada" <?= isset($tipo_controlador_drive) && in_array('integrada', $tipo_controlador_drive) ? 'checked' : '' ?>>
                 <label for="integrada">Integrada al módulo de led</label><br>
-                <input type="checkbox" id="separado" name="tipo_controlador[]" value="separado" <?= isset($tipo_controlador) && in_array('separado', $tipo_controlador) ? 'checked' : '' ?>>
+                <input type="checkbox" id="separado" name="tipo_controlador_drive[]" value="separado" <?= isset($tipo_controlador_drive) && in_array('separado', $tipo_controlador_drive) ? 'checked' : '' ?>>
                 <label for="separado">Separado del módulo de led</label><br>
-                <input type="checkbox" id="fuera" name="tipo_controlador[]" value="fuera" <?= isset($tipo_controlador) && in_array('fuera', $tipo_controlador) ? 'checked' : '' ?>>
+                <input type="checkbox" id="fuera" name="tipo_controlador_drive[]" value="fuera" <?= isset($tipo_controlador_drive) && in_array('fuera', $tipo_controlador_drive) ? 'checked' : '' ?>>
                 <label for="fuera">Fuera del luminario</label>
             </td>
         </tr>
         <tr>
             <th class="header">Posición del luminario en grados con respecto a la horizontal (importante para la realización de las pruebas del fotogoniómetro):</th>
-            <td class="data"><input type="text" name="posicion_luminaria_grados" value="<?= isset($posicion_luminaria_grados) ? $posicion_luminaria_grados : '' ?>"></td>
+            <td class="data"><input type="text" name="posicion_grados_horizontal_especimen" value="<?= isset($posicion_grados_horizontal_especimen) ? $posicion_grados_horizontal_especimen : '' ?>"></td>
         </tr>
         <tr>
             <th colspan="header" class="note">* Esta información se sustituye por los datos especificados en la ficha técnica anexa (debe estar presente la misma anteponiendo la palabra MUESTRA:)</th>
@@ -844,23 +844,23 @@ select {
       <table class="custom-table">
         <tr>
             <th>Fabricante de la luminaria</th>
-            <td><input type="text" id="fabricante" name="fabricante_luminaria" value="<?= isset($fabricante_luminaria) ? $fabricante_luminaria : '' ?>"></td>
+            <td><input type="text" id="fabricante_luminaria" name="fabricante_luminaria" value="<?= isset($fabricante_luminaria) ? $fabricante_luminaria : '' ?>"></td>
         </tr>
         <tr>
             <th>Número de módulos de tarjetas LED del luminario y/o lámpara</th>
-            <td><input type="text" id="num_modulos" name="numero_tarjetas_led" value="<?= isset($numero_tarjetas_led) ? $numero_tarjetas_led : '' ?>"></td>
+            <td><input type="text" id="numero_modulos_tarjetas" name="numero_modulos_tarjetas" value="<?= isset($numero_modulos_tarjetas) ? $numero_modulos_tarjetas : '' ?>"></td>
         </tr>
         <tr>
             <th>Número de LEDs por módulo de tarjetas LED del luminario/lámpara</th>
-            <td><input type="text" id="num_leds_por_modulo" name="numero_leds_modulo" value="<?= isset($numero_leds_modulo) ? $numero_leds_modulo : '' ?>"></td>
+            <td><input type="text" id="num_leds_modulo" name="numero_leds_modulo" value="<?= isset($numero_leds_modulo) ? $numero_leds_modulo : '' ?>"></td>
         </tr>
         <tr>
             <th>Número de catálogo del luminario y/o lámpara</th>
-            <td><input type="text" id="num_catalogo" name="numero_catalogo" value="<?= isset($numero_catalogo) ? $numero_catalogo : '' ?>"></td>
+            <td><input type="text" id="numero_catalogo_especimen" name="numero_catalogo_especimen" value="<?= isset($numero_catalogo_especimen) ? $numero_catalogo_especimen : '' ?>"></td>
         </tr>
         <tr>
             <th>Dimensiones del luminario y/o lámpara (largo x ancho x alto)</th>
-            <td><input type="text" id="dimensiones" name="dimenciones" value="<?= isset($dimenciones) ? $dimenciones : '' ?>"></td>
+            <td><input type="text" id="dimensiones_especimen" name="dimensiones_especimen" value="<?= isset($dimensiones_especimen) ? $dimensiones_especimen : '' ?>"></td>
         </tr>
     </table>
         
@@ -882,7 +882,7 @@ select {
             <option value="no" <?= isset($conformidad) && $conformidad === 'no' ? 'selected' : '' ?>>No</option>
         </select> (12)</p>
     <p><strong>Referencia normativa:</strong> <input type="text" id="referencia_normativa" name="referencia_normativa" value="<?= isset($referencia_normativa) ? $referencia_normativa : '' ?>">(13)</p>
-    <p><strong>Regla de decisión:</strong> <input type="text" id="regla_de_decision" name="regla_decision" value="<?= isset($regla_decision) ? $regla_decision : '' ?>">(14)</p>
+    <p><strong>Regla de decisión:</strong> <input type="text" id="regla_de_decision" name="regla_de_decision" value="<?= isset($regla_de_decision) ? $regla_de_decision : '' ?>">(14)</p>
 
       <div class="center-table">
           <table class="custom-table">
@@ -920,7 +920,7 @@ select {
           </table>
         </div>
         
-        <p><strong>Definición de límites de tolerancia:</strong> <input type="text" id="limites_tolerancia_izquierda" name="definicion_tolerancia" value="<?= isset($definicion_tolerancia) ? $definicion_tolerancia : '' ?>"> (15)</p>
+        <p><strong>Definición de límites de tolerancia:</strong> <input type="text" id="limites_tolerancia" name="limites_tolerancia" value="<?= isset($limites_tolerancia) ? $limites_tolerancia : '' ?>"> (15)</p>
 
         <div class="additional-text">
           <p>(11) En caso de que la factura la requiera a nombre de otra empresa llenar los siguientes datos:  </p>
@@ -929,19 +929,19 @@ select {
         <table class="custom-table">
             <tr>
               <th class="table-header1">Razón social</th>
-              <td class="table-data"><input type="text" id="razon_social_factura" name="razon_social" value="<?= isset($razon_social) ? $razon_social : '' ?>"></td>
+              <td class="table-data"><input type="text" id="razon_social_otro_cliente" name="razon_social_otro_cliente" value="<?= isset($razon_social_otro_cliente) ? $razon_social_otro_cliente : '' ?>"></td>
             </tr>
             <tr>
               <th class="table-header1">Dirección</th>
-              <td class="table-data"><input type="text" id="direccion_factura" name="direccion" value="<?= isset($direccion) ? $direccion : '' ?>"></td>
+              <td class="table-data"><input type="text" id="direccion_otro_cliente" name="direccion_otro_cliente" value="<?= isset($direccion_otro_cliente) ? $direccion_otro_cliente : '' ?>"></td>
             </tr>
             <tr>
               <th class="table-header1">RFC</th>
-              <td class="table-data"><input type="text" id="rfc_factura" name="rfc" value="<?= isset($rfc) ? $rfc : '' ?>"></td>
+              <td class="table-data"><input type="text" id="rfc_otro_cliente" name="rfc_otro_cliente" value="<?= isset($rfc_otro_cliente) ? $rfc_otro_cliente : '' ?>"></td>
             </tr>
             <tr>
               <th class="table-header1">E-mail/tel.</th>
-              <td class="table-data"><input type="text" id="email_tel" name="e_mail_telefono" value="<?= isset($e_mail_telefono) ? $e_mail_telefono : '' ?>"></td>
+              <td class="table-data"><input type="text" id="e_mail_telefono_otro_cliente" name="e_mail_telefono_otro_cliente" value="<?= isset($e_mail_telefono_otro_cliente) ? $e_mail_telefono_otro_cliente : '' ?>"></td>
             </tr>
          </table>
         
