@@ -97,21 +97,6 @@ CREATE TABLE solicitud (
   FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id_cliente`)
 );
 
-CREATE TABLE `servicio` (
-  `id_servicio` int(5) NOT NULL AUTO_INCREMENT,
-  `id_especimen` int(5),
-  `id_estado` int(2),
-  `folio_solicitud` int(6),
-  `fecha_inicio_servicio` datetime NULL DEFAULT CURRENT_TIMESTAMP,
-  `fecha_fin_servicio` datetime on update CURRENT_TIMESTAMP NULL,
-  `fecha_modificacion_servicio` datetime,
-  `fecha_borrado_servicio` datetime,
-  `estado_registro_servicio` int(2),
-  PRIMARY KEY (`id_servicio`),
-  FOREIGN KEY (`id_especimen`) REFERENCES `especimen`(`id_especimen`),
-  FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
-);
-
 CREATE TABLE `especimen` (
   `id_especimen` int(5) NOT NULL AUTO_INCREMENT,
   `id_solicitud` int(5),
@@ -149,7 +134,22 @@ CREATE TABLE `especimen` (
   `fecha_borrado_especimen` datetime,
   `estado_registro_especimen` int(2),
   PRIMARY KEY (`id_especimen`),
-  FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
+  FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`)
+);
+
+CREATE TABLE `servicio` (
+  `id_servicio` int(5) NOT NULL AUTO_INCREMENT,
+  `id_especimen` int(5),
+  `id_estado` int(2),
+  `folio_solicitud` int(6),
+  `fecha_inicio_servicio` datetime NULL DEFAULT CURRENT_TIMESTAMP,
+  `fecha_fin_servicio` datetime on update CURRENT_TIMESTAMP NULL,
+  `fecha_modificacion_servicio` datetime,
+  `fecha_borrado_servicio` datetime,
+  `estado_registro_servicio` int(2),
+  PRIMARY KEY (`id_servicio`),
+  FOREIGN KEY (`id_especimen`) REFERENCES `especimen`(`id_especimen`),
+  FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 );
 
 CREATE TABLE `servicio_documento` (
