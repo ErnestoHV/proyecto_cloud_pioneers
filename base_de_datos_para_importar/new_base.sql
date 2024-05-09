@@ -42,7 +42,8 @@ CREATE TABLE `usuario` (
   `fecha_modificacion_usuario` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_usuario` datetime,
   `estado_registro_usuario` int(2),
-  PRIMARY KEY (`id_usuario`)
+  PRIMARY KEY (`id_usuario`),
+  FOREIGN KEY (`id_rol`) REFERENCES `rol`(`id_rol`)
 );
 
 CREATE TABLE `cliente` (
@@ -70,7 +71,8 @@ CREATE TABLE `documento` (
   `fecha_modificacion_documento` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_documento` datetime,
   `estado_registro_documento` int(2),
-  PRIMARY KEY (`id_documento`)
+  PRIMARY KEY (`id_documento`),
+  FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 );
 
 CREATE TABLE solicitud (
@@ -91,7 +93,8 @@ CREATE TABLE solicitud (
   `fecha_borrado_solicitud` datetime,
   `estado_registro_solicitud` int(2),
   PRIMARY KEY (`id_solicitud`),
-  FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`)
+  FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`),
+  FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id_cliente`)
 );
 
 CREATE TABLE `servicio` (
@@ -104,7 +107,10 @@ CREATE TABLE `servicio` (
   `fecha_modificacion_servicio` datetime,
   `fecha_borrado_servicio` datetime,
   `estado_registro_servicio` int(2),
-  PRIMARY KEY (id_servicio)
+  PRIMARY KEY (`id_servicio`),
+  FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id_cliente`),
+  FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
+  FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 );
 
 CREATE TABLE `especimen` (
@@ -143,7 +149,10 @@ CREATE TABLE `especimen` (
   `fecha_modificacion_especimen` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_especimen` datetime,
   `estado_registro_especimen` int(2),
-  PRIMARY KEY (`id_especimen`)
+  PRIMARY KEY (`id_especimen`),
+    FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
+  FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`),
+  FOREIGN KEY (`id_servicio`) REFERENCES `servicio`(`id_servicio`)
 );
 
 CREATE TABLE `servicio_documento` (
@@ -156,7 +165,10 @@ CREATE TABLE `servicio_documento` (
   `fecha_borrado_servicio_documento` datetime,
   `link_documento` varchar(60),
   `estado_registro_servicio_documento` int(2),
-  PRIMARY KEY (`id_servicio_documento`)
+  PRIMARY KEY (`id_servicio_documento`),
+  FOREIGN KEY (`id_servicio`) REFERENCES `servicio`(`id_servicio`),
+  FOREIGN KEY (`id_documento`) REFERENCES `documento`(`id_documento`),
+  FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`)
 );
 
 CREATE TABLE `solicitud_ensayo` (
@@ -167,7 +179,9 @@ CREATE TABLE `solicitud_ensayo` (
   `fecha_modificacion_solicitud_ensayo` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_solicitud_ensayo` datetime,
   `estado_registro_servicio_documento` int(2),
-  PRIMARY KEY (`id_solicitud_ensayo`)
+  PRIMARY KEY (`id_solicitud_ensayo`),
+  FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
+  FOREIGN KEY (`id_ensayo`) REFERENCES `ensayo`(`id_ensayo`)
 );
 
 CREATE TABLE `bitacora_servicio` (
@@ -178,7 +192,8 @@ CREATE TABLE `bitacora_servicio` (
   `fecha_modificacion_bitacora` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_bitacora` datetime,
   `estado_registro_bitacora` int(2),
-  PRIMARY KEY (`id_bitacora_servicio`)
+  PRIMARY KEY (`id_bitacora_servicio`),
+  FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 );
 
 /*Tabla ROL*/
