@@ -108,8 +108,7 @@ CREATE TABLE `servicio` (
   `fecha_borrado_servicio` datetime,
   `estado_registro_servicio` int(2),
   PRIMARY KEY (`id_servicio`),
-  FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id_cliente`),
-  FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
+  FOREIGN KEY (`id_especimen`) REFERENCES `especimen`(`id_especimen`),
   FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 );
 
@@ -150,9 +149,7 @@ CREATE TABLE `especimen` (
   `fecha_borrado_especimen` datetime,
   `estado_registro_especimen` int(2),
   PRIMARY KEY (`id_especimen`),
-    FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
-  FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`),
-  FOREIGN KEY (`id_servicio`) REFERENCES `servicio`(`id_servicio`)
+  FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
 );
 
 CREATE TABLE `servicio_documento` (
@@ -193,6 +190,7 @@ CREATE TABLE `bitacora_servicio` (
   `fecha_borrado_bitacora` datetime,
   `estado_registro_bitacora` int(2),
   PRIMARY KEY (`id_bitacora_servicio`),
+  FOREIGN KEY (`id_servicio`) REFERENCES `servicio`(`id_servicio`),
   FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 );
 
