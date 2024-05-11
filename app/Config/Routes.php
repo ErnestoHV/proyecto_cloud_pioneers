@@ -42,6 +42,15 @@ $routes->get('/administrador/vista_administrador_cruds_ensayos', 'AdminControlle
 $routes->get('/administrador/vista_administrador_servicios', 'AdminController::admin_servicios');
 ///Rutas para direccionar al usuario a la vista de solicitudes de Administrador
 $routes->get('/administrador/vista_administrador_solicitudes', 'AdminController::admin_solicitudes');
+///////////////
+///C R U D S///
+///////////////
+$routes->get('/administrador/vista_administrador_cruds_clientes/borrar.(:num)','AdminController:admin_cruds_clientes_borrar.$1');
+/////////////
+//Búsquedas//
+/////////////
+
+//Búsqueda de cliente por RFC
 
 
 

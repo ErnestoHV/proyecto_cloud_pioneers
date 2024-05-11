@@ -7,7 +7,7 @@ class ServicioModel extends Model
 {
     protected $table      = 'servicio';
     protected $primaryKey = 'id_servicio';
-    protected $allowedFields = ['id_cliente','id_solicitud','id_estado'.'folio_solicitud','fecha_inicio_servicio','fecha_fin_servicio','fecha_borrado_servicio','estado_registro_servicio'];
+    protected $allowedFields = ['id_cliente','id_solicitud','id_estado'.'folio_solicitud','fecha_inicio_servicio','fecha_fin_servicio','fecha_borrado_servicio'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = true;

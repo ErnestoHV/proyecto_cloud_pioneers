@@ -23,14 +23,14 @@
             <?php FOREACH ($estados as $estado):?>
                 <?php if ($documento['id_estado'] == $estado['id_estado']): ?>
                     <tr>
-                        <td><?php echo $documento['id_documento'];?></td>
-                        <td><?php echo $documento['nombre_documento'];?></td>
-                        <td><?php echo $estado['nombre_estado'];?></td>
-                        <td><?php echo $documento['descripcion_documento'];?></td>
-                        <td><?php echo $documento['link_documento_plantilla'];?></td>
-                        <td><?php echo $documento['fecha_carga_documento'];?></td>
-                        <td><i data-feather="edit"></i></td>
-                        <td><i data-feather="trash-2"></i></td>
+                        <td class="text-center"><?php echo $documento['id_documento'];?></td>
+                        <td class="text-start"><?php echo $documento['nombre_documento'];?></td>
+                        <td class="text-start"><?php echo $estado['nombre_estado'];?></td>
+                        <td class="text-start"><?php echo $documento['descripcion_documento'];?></td>
+                        <td class="text-start"><?php echo $documento['link_documento_plantilla'];?></td>
+                        <td class="text-center"><?php echo $documento['fecha_carga_documento'];?></td>
+                        <td class="text-center"><i data-feather="edit"></i></td>
+                        <td class="text-center"><i data-feather="trash-2"></i></td>
                     </tr>
                 <?php endif;?>
             <?php endforeach;?>

@@ -1,10 +1,9 @@
 CREATE TABLE `estado` (
   `id_estado` int(2) NOT NULL AUTO_INCREMENT,
-  `nombre_estado` varchar(15),
+  `nombre_estado` varchar(40),
   `fecha_creacion_estado` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_estado` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_estado` datetime,
-  `estado_registro_tabla_estado` int(2),
   PRIMARY KEY (`id_estado`)
 );
 
@@ -17,7 +16,6 @@ CREATE TABLE `ensayo` (
   `fecha_creacion_ensayo` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_ensayo` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_ensayo` datetime,
-  `estado_registro_ensayo` int(2),
   PRIMARY KEY (`id_ensayo`)
 );
 
@@ -27,7 +25,6 @@ CREATE TABLE `rol` (
   `fecha_creacion_rol` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_rol` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_rol` datetime,
-  `estado_registro_rol` int(2),
   PRIMARY KEY (`id_rol`)
 );
 
@@ -41,7 +38,6 @@ CREATE TABLE `usuario` (
   `fecha_creacion_usuario` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_usuario` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_usuario` datetime,
-  `estado_registro_usuario` int(2),
   PRIMARY KEY (`id_usuario`),
   FOREIGN KEY (`id_rol`) REFERENCES `rol`(`id_rol`)
 );
@@ -57,7 +53,6 @@ CREATE TABLE `cliente` (
   `fecha_creacion_cliente` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_cliente` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_cliente` datetime,
-  `estado_registro_cliente` int(2),
   PRIMARY KEY (`id_cliente`)
 );
 
@@ -70,7 +65,6 @@ CREATE TABLE `documento` (
   `fecha_carga_documento` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_documento` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_documento` datetime,
-  `estado_registro_documento` int(2),
   PRIMARY KEY (`id_documento`),
   FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
 );
@@ -91,7 +85,6 @@ CREATE TABLE solicitud (
   `fecha_registro_solicitud` datetime  NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_solicitud` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_solicitud` datetime,
-  `estado_registro_solicitud` int(2),
   PRIMARY KEY (`id_solicitud`),
   FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`),
   FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id_cliente`)
@@ -132,7 +125,6 @@ CREATE TABLE `especimen` (
   `fecha_registro_especimen` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_especimen` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_especimen` datetime,
-  `estado_registro_especimen` int(2),
   PRIMARY KEY (`id_especimen`),
   FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`)
 );
@@ -146,7 +138,6 @@ CREATE TABLE `servicio` (
   `fecha_fin_servicio` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_modificacion_servicio` datetime,
   `fecha_borrado_servicio` datetime,
-  `estado_registro_servicio` int(2),
   PRIMARY KEY (`id_servicio`),
   FOREIGN KEY (`id_especimen`) REFERENCES `especimen`(`id_especimen`),
   FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
@@ -161,7 +152,6 @@ CREATE TABLE `servicio_documento` (
   `fecha_modificacion_servicio_documento` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_servicio_documento` datetime,
   `link_documento` varchar(60),
-  `estado_registro_servicio_documento` int(2),
   PRIMARY KEY (`id_servicio_documento`),
   FOREIGN KEY (`id_servicio`) REFERENCES `servicio`(`id_servicio`),
   FOREIGN KEY (`id_documento`) REFERENCES `documento`(`id_documento`),
@@ -175,7 +165,6 @@ CREATE TABLE `solicitud_ensayo` (
   `fecha_creacion_solicitud_ensayo` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_solicitud_ensayo` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_solicitud_ensayo` datetime,
-  `estado_registro_servicio_documento` int(2),
   PRIMARY KEY (`id_solicitud_ensayo`),
   FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud`(`id_solicitud`),
   FOREIGN KEY (`id_ensayo`) REFERENCES `ensayo`(`id_ensayo`)
@@ -188,7 +177,6 @@ CREATE TABLE `bitacora_servicio` (
   `fecha_registro_bitacora` datetime NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_modificacion_bitacora` datetime on update CURRENT_TIMESTAMP NULL,
   `fecha_borrado_bitacora` datetime,
-  `estado_registro_bitacora` int(2),
   PRIMARY KEY (`id_bitacora_servicio`),
   FOREIGN KEY (`id_servicio`) REFERENCES `servicio`(`id_servicio`),
   FOREIGN KEY (`id_estado`) REFERENCES `estado`(`id_estado`)
@@ -196,88 +184,88 @@ CREATE TABLE `bitacora_servicio` (
 
 /*Tabla ROL*/
 
-INSERT INTO `rol` (`id_rol`, `nombre_rol`, `estado_registro_rol`) VALUES 
-(NULL, 'Responsable de LIEE',1),
-(NULL, 'Responsable de ensayos',1),
-(NULL, 'Operador (responsable técnico)',1),
-(NULL, 'Responsable SGC',1),
-(NULL, 'Administrador',1),
-(NULL, 'Supervisor',1),
-(NULL, 'Operador asistente',1);
+INSERT INTO `rol` (`id_rol`, `nombre_rol`) VALUES 
+(NULL, 'Responsable de LIEE'),
+(NULL, 'Responsable de ensayos'),
+(NULL, 'Operador (responsable técnico)'),
+(NULL, 'Responsable SGC'),
+(NULL, 'Administrador'),
+(NULL, 'Supervisor'),
+(NULL, 'Operador asistente');
 
 /*Tabla USUARIO*/
 
-INSERT INTO `usuario` (`id_usuario`, `id_rol`, `contrasena_usuario`, `correo_electronico`, `nombre_usuario`, `apellidos_usuario`, `estado_registro_usuario`) VALUES
-(NULL, '1', 'cloud', 'hgarflo@inaoe.edu.mx', 'Humberto', 'García Flores',1),
-(NULL, '2', 'cloud', 'lapp@inaoe.edu.mx', 'Aldo', 'Pérez Peláez',1),
-(NULL, '4', 'cloud', 'leticia2m@inaoe.edu.mx', 'Leticia', 'Martínez Martínez',1),
-(NULL, '2', 'cloud', 'bahena@inaoe.edu.mx', 'José Guadalupe', 'Bahena Vázquez',1),
-(NULL, '3', 'cloud', 'irvingga@inaoe.edu.mx', 'Irving', 'Garrido Aguilar',1),
-(NULL, '3', 'cloud', 'ericksh@inaoe.edu.mx', 'Erick', 'Sánchez Hernández',1),
-(NULL, '3', 'cloud', 'oscarpj@inaoe.edu.mx', 'Óscar', 'Pérez Jiménez',1),
-(NULL, '5', 'cloud', 'admin@admin', 'Administrador', NULL,1),
-(NULL, '6', 'cloud', 'sup@sup', 'Supervisor', NULL,1),
-(NULL, '7', 'cloud', 'op@op', 'Operador asistente', NULL,1);
+INSERT INTO `usuario` (`id_usuario`, `id_rol`, `contrasena_usuario`, `correo_electronico`, `nombre_usuario`, `apellidos_usuario`) VALUES
+(NULL, '1', 'cloud', 'hgarflo@inaoe.edu.mx', 'Humberto', 'García Flores'),
+(NULL, '2', 'cloud', 'lapp@inaoe.edu.mx', 'Aldo', 'Pérez Peláez'),
+(NULL, '4', 'cloud', 'leticia2m@inaoe.edu.mx', 'Leticia', 'Martínez Martínez'),
+(NULL, '2', 'cloud', 'bahena@inaoe.edu.mx', 'José Guadalupe', 'Bahena Vázquez'),
+(NULL, '3', 'cloud', 'irvingga@inaoe.edu.mx', 'Irving', 'Garrido Aguilar'),
+(NULL, '3', 'cloud', 'ericksh@inaoe.edu.mx', 'Erick', 'Sánchez Hernández'),
+(NULL, '3', 'cloud', 'oscarpj@inaoe.edu.mx', 'Óscar', 'Pérez Jiménez'),
+(NULL, '5', 'cloud', 'admin@admin', 'Administrador', NULL),
+(NULL, '6', 'cloud', 'sup@sup', 'Supervisor', NULL),
+(NULL, '7', 'cloud', 'op@op', 'Operador asistente', NULL);
 
 /*Tabla ESTADO*/
 
-INSERT INTO `estado` (`id_estado`, `nombre_estado`, `fecha_creacion_estado`, `fecha_modificacion_estado`, `fecha_borrado_estado`, `estado_registro_tabla_estado`) VALUES
-(NULL, 'Solicitud', NULL, NULL, NULL, 1),
-(NULL, 'Factibilidad y cotización', NULL, NULL, NULL, 1),
-(NULL, 'Recepción de ítems', NULL, NULL, NULL, 1),
-(NULL, 'Ejecución de ensayos', NULL, NULL, NULL, 1),
-(NULL, 'Validación de resultados', NULL, NULL, NULL, 1),
-(NULL, 'Entrega de informe', NULL, NULL, NULL, 1),
-(NULL, 'Finalización de servicio', NULL, NULL, NULL, 1),
-(NULL, 'Cierre de servicio', NULL, NULL, NULL, 1);
+INSERT INTO `estado` (`id_estado`, `nombre_estado`, `fecha_creacion_estado`, `fecha_modificacion_estado`, `fecha_borrado_estado`) VALUES
+(NULL, 'Solicitud', NULL, NULL, NULL),
+(NULL, 'Factibilidad y cotización', NULL, NULL, NULL),
+(NULL, 'Recepción de ítems', NULL, NULL, NULL),
+(NULL, 'Ejecución de ensayos', NULL, NULL, NULL),
+(NULL, 'Validación de resultados', NULL, NULL, NULL),
+(NULL, 'Entrega de informe', NULL, NULL, NULL),
+(NULL, 'Finalización de servicio', NULL, NULL, NULL),
+(NULL, 'Cierre de servicio', NULL, NULL, NULL);
 
 /*Tabla DOCUMENTO*/
 
-INSERT INTO `documento` (`id_documento`, `nombre_documento`, `descripcion_documento`, `id_estado`, `link_documento_plantilla`, `estado_registro_documento`) VALUES
-(NULL, 'INAOE-GCL-IT-OI Identificación de equipos e ítems.pdf', 'Guía para realizar la correcta identificación de los equipos y especímenes bajo prueba.',3, NULL,1),
-(NULL, 'INAOE-GCL-lT-02-02 Plantilla para la elaboracion del informe de ensayos - LIEE.pdf', 'Documento plantilla usado para la redacción del informe final de ensayos.',6, NULL,1),
-(NULL, 'INAOE-GCL-PR-07-01 Solicitud de Servicios NOM 030 y 031 (1).pdf', 'Formato proporcionado a los clientes para generar una solicitud de servicio.',1, NULL,1),
-(NULL, 'INAOE-GCL-PR-07-02 Cotización de servicios LIEE.pdf', 'Formato proporcionado a los clientes donde se estipula la cotización del servicio solicitado, funciona a su vez como contrato.',2, NULL,1),
-(NULL, 'INAOE-GCL-PR-07-04 orden de servicio (1).pdf', 'Documento donde se indican las diversas pruebas que deben ser realizadas a los especímenes señalados',4,NULL,1),
-(NULL, 'INAOE-GCL-PR-07-06_Analisis_de_Factibilidad NOM 030 y 31.pdf', 'Documento donde se evalúa la factibilidad de la realización del servicio',2, NULL,1),
-(NULL, 'INAOE-GCL-PR-07-07 Bitácora_para_recepcion_de_especímenes_bajo_prueba.pdf', 'Documento donde se registra la recepción de los diversos especímenes enviados por los clientes.',3, NULL,1),
-(NULL, 'INAOE-GCL-PR-22-07 control de foliosn.xlsx', 'Documento guía para la relación entre las diversas fases del proceso y sus documentos asociados.',4, NULL,1);
+INSERT INTO `documento` (`id_documento`, `nombre_documento`, `descripcion_documento`, `id_estado`, `link_documento_plantilla`) VALUES
+(NULL, 'INAOE-GCL-IT-OI Identificación de equipos e ítems.pdf', 'Guía para realizar la correcta identificación de los equipos y especímenes bajo prueba.',3, NULL),
+(NULL, 'INAOE-GCL-lT-02-02 Plantilla para la elaboracion del informe de ensayos - LIEE.pdf', 'Documento plantilla usado para la redacción del informe final de ensayos.',6, NULL),
+(NULL, 'INAOE-GCL-PR-07-01 Solicitud de Servicios NOM 030 y 031 (1).pdf', 'Formato proporcionado a los clientes para generar una solicitud de servicio.',1, NULL),
+(NULL, 'INAOE-GCL-PR-07-02 Cotización de servicios LIEE.pdf', 'Formato proporcionado a los clientes donde se estipula la cotización del servicio solicitado, funciona a su vez como contrato.',2, NULL),
+(NULL, 'INAOE-GCL-PR-07-04 orden de servicio (1).pdf', 'Documento donde se indican las diversas pruebas que deben ser realizadas a los especímenes señalados',4,NULL),
+(NULL, 'INAOE-GCL-PR-07-06_Analisis_de_Factibilidad NOM 030 y 31.pdf', 'Documento donde se evalúa la factibilidad de la realización del servicio',2, NULL),
+(NULL, 'INAOE-GCL-PR-07-07 Bitácora_para_recepcion_de_especímenes_bajo_prueba.pdf', 'Documento donde se registra la recepción de los diversos especímenes enviados por los clientes.',3, NULL),
+(NULL, 'INAOE-GCL-PR-22-07 control de foliosn.xlsx', 'Documento guía para la relación entre las diversas fases del proceso y sus documentos asociados.',4, NULL);
 
 /*Tabla ENSAYO*/
 
-INSERT INTO `ensayo` (`id_ensayo`, `tipo_ensayo`, `codigo_ensayo`, `nombre_ensayo`, `norma_oficial_mexicana`,`estado_registro_ensayo`) VALUES
-(NULL, 'A', '030/7.1', 'Eficacia luminosa', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.2', 'Variación del flujo luminoso total nominal ', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.3', 'Temperatura de color correlacionado (TCC)', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.4', 'Flujo luminoso total mínimo mantenido', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.5', 'Índice de rendimiento de color (IRC)', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.6', 'Factor de potencia (PU)', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.7', 'Distribución espacial de luz', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.8', 'Ciclo de choque térmico', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.9', 'Ciclo de conmutación', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.10', 'Sobretensiones transitorias', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '030/7.11', 'Distorsión armónica total', 'NOM 030 ENER 2016',1),
-(NULL, 'A', '031/8.1', 'Eficacia luminosa', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.2', 'Variación de flujo luminoso nominal', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.3', 'Temperatura de color correlacionada (TCC)', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.4', 'Flujo luminoso total mantenido', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.5', 'Índice de rendimiento de color (IRC) ', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.6', 'Factor de potencia (PU)', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.7', 'Distorsión armónica total en corriente', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.8', 'Flujo luminoso de deslumbramiento', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.9', 'Resistencia al choque térmico y a la conmutación', 'NOM 031 ENER 2019',1),
-(NULL, 'A', '031/8.10', 'Resistencia a las descargas atmosféricas', 'NOM 031 ENER 2019',1);
+INSERT INTO `ensayo` (`id_ensayo`, `tipo_ensayo`, `codigo_ensayo`, `nombre_ensayo`, `norma_oficial_mexicana`) VALUES
+(NULL, 'A', '030/7.1', 'Eficacia luminosa', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.2', 'Variación del flujo luminoso total nominal ', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.3', 'Temperatura de color correlacionado (TCC)', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.4', 'Flujo luminoso total mínimo mantenido', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.5', 'Índice de rendimiento de color (IRC)', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.6', 'Factor de potencia (PU)', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.7', 'Distribución espacial de luz', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.8', 'Ciclo de choque térmico', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.9', 'Ciclo de conmutación', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.10', 'Sobretensiones transitorias', 'NOM 030 ENER 2016'),
+(NULL, 'A', '030/7.11', 'Distorsión armónica total', 'NOM 030 ENER 2016'),
+(NULL, 'A', '031/8.1', 'Eficacia luminosa', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.2', 'Variación de flujo luminoso nominal', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.3', 'Temperatura de color correlacionada (TCC)', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.4', 'Flujo luminoso total mantenido', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.5', 'Índice de rendimiento de color (IRC) ', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.6', 'Factor de potencia (PU)', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.7', 'Distorsión armónica total en corriente', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.8', 'Flujo luminoso de deslumbramiento', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.9', 'Resistencia al choque térmico y a la conmutación', 'NOM 031 ENER 2019'),
+(NULL, 'A', '031/8.10', 'Resistencia a las descargas atmosféricas', 'NOM 031 ENER 2019');
 
 /*Tabla CLIENTE*/
 
-INSERT INTO `cliente` (`id_cliente`,`nombre_contacto`, `razon_social`, `direccion_cliente`, `rfc_cliente`, `telefono_cliente`, `correo_electronico_cliente`,`estado_registro_cliente`) VALUES
-(NULL, 'Juan Pérez', 'Pérez y Cía.', 'Calle 123, Colonia Centro', 'ABCD123456EFG', '5551234567', 'juan@example.com', 1),
-(NULL, 'María López', 'López S.A.', 'Avenida Principal 456', 'WXYZ987654ABC', '5557654321', 'maria@example.com', 1),
-(NULL, 'Pedro García', 'García Hnos.', 'Calle Secundaria 789', 'MNOQ54321RST', '5556789012', 'pedro@example.com', 1),
-(NULL, 'Ana Martínez', 'Martínez e Hijos', 'Avenida 456, Colonia Norte', 'LMNO123456PQR', '5555555555', 'ana@example.com', 1),
-(NULL, 'Javier Sánchez', 'Sánchez & Asociados', 'Calle 789, Colonia Sur', 'WXYZ987654TUV', '5554443333', 'javier@example.com', 1),
-(NULL, 'Sofía Rodríguez', 'Rodríguez S.C.', 'Avenida 012, Colonia Este', 'UVWX456789YZA', '5553332222', 'sofia@example.com', 1),
-(NULL, 'Carlos Gómez', 'Gómez Ltda.', 'Calle 345, Colonia Oeste', 'BCDE987654FGH', '5552221111', 'carlos@example.com', 1);
+INSERT INTO `cliente` (`id_cliente`,`nombre_contacto`, `razon_social`, `direccion_cliente`, `rfc_cliente`, `telefono_cliente`, `correo_electronico_cliente`) VALUES
+(NULL, 'Juan Pérez', 'Pérez y Cía.', 'Calle 123, Colonia Centro', 'ABCD123456EFG', '5551234567', 'juan@example.com'),
+(NULL, 'María López', 'López S.A.', 'Avenida Principal 456', 'WXYZ987654ABC', '5557654321', 'maria@example.com'),
+(NULL, 'Pedro García', 'García Hnos.', 'Calle Secundaria 789', 'MNOQ54321RST', '5556789012', 'pedro@example.com'),
+(NULL, 'Ana Martínez', 'Martínez e Hijos', 'Avenida 456, Colonia Norte', 'LMNO123456PQR', '5555555555', 'ana@example.com'),
+(NULL, 'Javier Sánchez', 'Sánchez & Asociados', 'Calle 789, Colonia Sur', 'WXYZ987654TUV', '5554443333', 'javier@example.com'),
+(NULL, 'Sofía Rodríguez', 'Rodríguez S.C.', 'Avenida 012, Colonia Este', 'UVWX456789YZA', '5553332222', 'sofia@example.com'),
+(NULL, 'Carlos Gómez', 'Gómez Ltda.', 'Calle 345, Colonia Oeste', 'BCDE987654FGH', '5552221111', 'carlos@example.com');
 
 /*Trigger para crear folio*/
 

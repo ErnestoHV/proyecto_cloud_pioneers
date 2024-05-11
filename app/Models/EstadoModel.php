@@ -7,7 +7,7 @@ class EstadoModel extends Model
 {
     protected $table      = 'estado';
     protected $primaryKey = 'id_estado';
-    protected $allowedFields = ['nombre_estado','fecha_creacion_estado','fecha_modificacion_estado','fecha_borrado_estado','estado_registro_tabla_estado'];
+    protected $allowedFields = ['nombre_estado','fecha_creacion_estado','fecha_modificacion_estado','fecha_borrado_estado'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = true;

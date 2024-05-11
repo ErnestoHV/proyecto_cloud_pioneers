@@ -16,7 +16,7 @@ class EspecimenModel extends Model
     'factor_potencia_nominal_especimen','material_carcasa_especimen', 'material_reflector_especimen', 'tipo_montaje_especimen',
     'tipo_controlador_drive', 'posicion_grados_horizontal_especimen', 'fabricante_luminaria', 'numero_modulos_tarjetas',
     'numero_leds_modulo', 'numero_catalogo_especimen', 'dimensiones_especimen', 'estado_especimen', 'aceptacion_especimen',
-    'fecha_registro_especimen', 'fecha_modificacion_especimen', 'fecha_borrado_especimen', 'estado_registro_especimen'];
+    'fecha_registro_especimen', 'fecha_modificacion_especimen', 'fecha_borrado_especimen'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = true;

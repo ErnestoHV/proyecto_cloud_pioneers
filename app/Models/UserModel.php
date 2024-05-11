@@ -7,7 +7,7 @@ class UserModel extends Model
 {
     protected $table      = 'usuario';
     protected $primaryKey = 'id_usuario';
-    protected $allowedFields = ['id_rol','contrasena_usuario','correo_electronico','nombre_usuario','apellidos_usuario','fecha_creacion_usuario','fecha_modificacion_usuario','fecha_borrado_usuario','estado_registro_usuario'];
+    protected $allowedFields = ['id_rol','contrasena_usuario','correo_electronico','nombre_usuario','apellidos_usuario','fecha_creacion_usuario','fecha_modificacion_usuario','fecha_borrado_usuario'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = true;

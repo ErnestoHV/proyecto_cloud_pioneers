@@ -7,7 +7,7 @@ class RolModel extends Model
 {
     protected $table      = 'rol';
     protected $primaryKey = 'id_rol';
-    protected $allowedFields = ['nombre_rol','fecha_creacion_rol','fecha_modificacion_rol','fecha_borrado_rol','estado_registro_rol'];
+    protected $allowedFields = ['nombre_rol','fecha_creacion_rol','fecha_modificacion_rol','fecha_borrado_rol'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = true;

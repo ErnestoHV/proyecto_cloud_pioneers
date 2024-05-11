@@ -23,10 +23,10 @@
                 <?php if ($usuario['id_rol'] == $rol['id_rol']): ?>
                     <tr>
                         <td><?php echo $usuario['id_usuario'];?></td>
-                        <td><?php echo $rol['nombre_rol'];?></td>
-                        <td><?php echo $usuario['correo_electronico'];?></td>
-                        <td><?php echo $usuario['nombre_usuario'];?></td>
-                        <td><?php echo $usuario['apellidos_usuario'];?></td>
+                        <td class="text-start"><?php echo $rol['nombre_rol'];?></td>
+                        <td class="text-start"><?php echo $usuario['correo_electronico'];?></td>
+                        <td class="text-start"><?php echo $usuario['nombre_usuario'];?></td>
+                        <td class="text-start"><?php echo $usuario['apellidos_usuario'];?></td>
                         <td><i data-feather="edit"></i></td>
                         <td><i data-feather="trash-2"></i></td>
                     </tr>

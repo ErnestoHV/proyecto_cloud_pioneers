@@ -23,14 +23,14 @@
         <?php foreach ($clientes as $cliente):?>
             <tr>
                     <td><?php echo $cliente['id_cliente'];?></td>
-                    <td><?php echo $cliente['nombre_contacto'];?></td>
-                    <td><?php echo $cliente['razon_social'];?></td>
-                    <td><?php echo $cliente['direccion_cliente'];?></td>
+                    <td class="text-start"><?php echo $cliente['nombre_contacto'];?></td>
+                    <td class="text-start"><?php echo $cliente['razon_social'];?></td>
+                    <td class="text-start"><?php echo $cliente['direccion_cliente'];?></td>
                     <td><?php echo $cliente['rfc_cliente'];?></td>
                     <td><?php echo $cliente['telefono_cliente'];?></td>
-                    <td><?php echo $cliente['correo_electronico_cliente'];?></td>
+                    <td class="text-start"><?php echo $cliente['correo_electronico_cliente'];?></td>
                     <td><i data-feather="edit"></i></td>
-                    <td><i data-feather="trash-2"></i></td>
+                    <td><a href="<?= base_url('/administrador/vista_administrador_cruds_clientes/borrar'.$cliente['id_cliente'])?>" onclick="return confirm('¿Está seguro que desea borrar este registro?')"><i data-feather="trash-2"></i></a></td>
                 </tr>
         <?php endforeach;?>
     </tbody>

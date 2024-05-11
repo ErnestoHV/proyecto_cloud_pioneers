@@ -7,7 +7,8 @@ class DocumentoModel extends Model
 {
     protected $table      = 'documento';
     protected $primaryKey = 'id_documento';
-    protected $allowedFields = ['nombre_documento','id_estado','descripcion_documento','link_documento_plantilla','fecha_carga_documento','fecha_modificacion_documento','fecha_borrado_documento','estado_registro_documento'];
+    protected $allowedFields = ['nombre_documento','id_estado','descripcion_documento','link_documento_plantilla'
+    ,'fecha_carga_documento','fecha_modificacion_documento','fecha_borrado_documento'];
 
     protected $returnType = 'array';
     protected $useSoftDeletes = true;

@@ -17,19 +17,35 @@ class AdminController extends BaseController
     {
         // echo 'Route= /AdminController::index || Controller=AdminController';
         // echo "<h1>AdminController</h1>";
-       
+        helper(['form']);
         return view('administrador/vista_administrador');
     }
+
+    /////////////////////////////
+    ///Funciones CRUD clientes///
+    /////////////////////////////
 
     public function admin_cruds_clientes()
     {
         $ClienteModel = new ClienteModel();
         $resultado_clientes = $ClienteModel->findAll();
-
+        
+        
         $datos_clientes = ['clientes'=>$resultado_clientes];
         return view('administrador/vista_administrador_cruds_clientes',$datos_clientes);
+        
     }
 
+    public function admin_cruds_clientes_borrar($id)
+    {
+        $ClienteModel = new ClienteModel();
+        $borrado_clientes ->where('id_cliente', $id)->delete($id);
+
+        return redirect()->to(base_url('vista_administrador_cruds_clientes'));
+    }
+    /////////////////////////////
+    ///Funciones CRUD usuarios///
+    /////////////////////////////
     public function admin_cruds_usuarios()
     {
         
@@ -85,4 +101,18 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_cruds_ensayos',$datos_ensayos);
     }
 
+    ///////////////
+    ///Búsquedas///
+    ///////////////
+
+    public function busqueda_clientes_rfc($rfc_cliente)
+    {
+        $ClienteModel = new ClienteModel();
+        $resultado_clientes = $ClienteModel->find($rfc_cliente);
+        $rfc_cliente = $this->request->getVar('rfc_cliente');
+
+
+        $datos_clientes = ['clientes'=>$resultado_clientes];
+        return view('administrador/vista_administrador_cruds_clientes',$datos_clientes);
+    }
 }

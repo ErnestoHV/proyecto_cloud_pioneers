@@ -24,7 +24,7 @@
                 <td><?php echo $ensayo['id_ensayo'];?></td>
                 <td><?php echo $ensayo['tipo_ensayo'];?></td>
                 <td><?php echo $ensayo['codigo_ensayo'];?></td>
-                <td><?php echo $ensayo['nombre_ensayo'];?></td>
+                <td class="text-start"><?php echo $ensayo['nombre_ensayo'];?></td>
                 <td><?php echo $ensayo['norma_oficial_mexicana'];?></td>
                 <td><?php echo $ensayo['fecha_creacion_ensayo'];?></td>
                 <td><i data-feather="edit"></i></td>

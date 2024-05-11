@@ -40,7 +40,7 @@
                                         <a href="vista_administrador_cruds_documentos" class="nav-link text-warning px-0"> <i data-feather="file"></i> <span class="d-none d-sm-inline">Documentos</span></a>
                                     </li>
                                     <li>
-                                        <a href="vista_administrador_cruds_ensayos" class="nav-link text-warning px-0"> <i data-feather="bookmark"></i> <span class="d-none d-sm-inline">Esayos</span></a>
+                                        <a href="vista_administrador_cruds_ensayos" class="nav-link text-warning px-0"> <i data-feather="bookmark"></i> <span class="d-none d-sm-inline">Ensayos</span></a>
                                     </li>
                                 </ul>
                             <li>
