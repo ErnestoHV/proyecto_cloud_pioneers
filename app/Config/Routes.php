@@ -30,8 +30,23 @@ $routes->get('login', 'LoginController::index');
 ///////////////////////////////////////////////////////////////
 //Rutas para direccionar al usuario a la vista de Administrador
 $routes->get('/administrador/vista_administrador', 'AdminController::index');
+////////////////////////////////
+///OPERACIONES ADMIN: CLIENTE///
+////////////////////////////////
+
 ///Rutas para direccionar al usuario a la vista de CRUDS de clientes dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_clientes', 'AdminController::admin_cruds_clientes');
+
+////////////////////////
+///Cliente: C R U D S///
+////////////////////////
+
+//Ruta para el alta de clientes
+$routes->get('/administrador/vista_administrador_alta_clientes','AdminController::admin_cruds_clientes_alta');
+//Ruta para el borrado de clientes
+//Ruta para la edición de clientes
+
+
 ///Rutas para direccionar al usuario a la vista de CRUDS de usuarios dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_usuarios', 'AdminController::admin_cruds_usuarios');
 ///Rutas para direccionar al usuario a la vista de CRUDS de documentos dentro de la vista Administrador
@@ -42,10 +57,7 @@ $routes->get('/administrador/vista_administrador_cruds_ensayos', 'AdminControlle
 $routes->get('/administrador/vista_administrador_servicios', 'AdminController::admin_servicios');
 ///Rutas para direccionar al usuario a la vista de solicitudes de Administrador
 $routes->get('/administrador/vista_administrador_solicitudes', 'AdminController::admin_solicitudes');
-///////////////
-///C R U D S///
-///////////////
-$routes->get('/administrador/vista_administrador_cruds_clientes/borrar.(:num)','AdminController:admin_cruds_clientes_borrar.$1');
+
 /////////////
 //Búsquedas//
 /////////////

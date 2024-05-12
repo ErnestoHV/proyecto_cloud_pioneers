@@ -2,7 +2,7 @@
 <?php echo $this->section('vista_administrador');?>
 
 <div class="row flex-nowrap bg-dark text-light">
-    <button class="btn btn-success" hre><h3>Alta de cliente</h3></button>
+    <a href="<?= base_url('administrador/vista_administrador_alta_clientes'); ?>" class="btn btn-success"><h3>Alta de cliente</h3></a>
 </div>  
 
 <table class="table table-dark table-striped table-bordered text-center" width="0%" cellspacing="0">

@@ -25,6 +25,7 @@ class AdminController extends BaseController
     ///Funciones CRUD clientes///
     /////////////////////////////
 
+    //Vista de clientes
     public function admin_cruds_clientes()
     {
         $ClienteModel = new ClienteModel();
@@ -36,13 +37,21 @@ class AdminController extends BaseController
         
     }
 
-    public function admin_cruds_clientes_borrar($id)
+    //Alta de clientes
+    public function admin_cruds_clientes_alta()
     {
-        $ClienteModel = new ClienteModel();
-        $borrado_clientes ->where('id_cliente', $id)->delete($id);
+        // $ClienteModel = new ClienteModel();
+        
+        return view('administrador/vista_administrador_alta_clientes');
+    }
+
+    //Borrado de clientes
+    public function admin_cruds_clientes_borrar()
+    {
 
         return redirect()->to(base_url('vista_administrador_cruds_clientes'));
     }
+
     /////////////////////////////
     ///Funciones CRUD usuarios///
     /////////////////////////////
