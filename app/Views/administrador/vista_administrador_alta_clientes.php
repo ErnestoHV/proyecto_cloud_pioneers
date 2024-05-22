@@ -3,11 +3,8 @@
 
 <div>
     <h1>Alta cliente</h1>
-    <div class="row flex-nowrap bg-dark text-light">
-        <a href="<?= base_url('administrador/vista_administrador_alta_clientes'); ?>" class="btn btn-success"><h3>Alta de cliente</h3></a>
-    </div>  
 
-    <form method="post" class="row g-3">
+    <form method="post" class="row g-3"  action="<?php base_url('vista_administrador_alta_clientes'); ?>">
 
         <div class="col-md-4">
             <label for="nombre_contacto" class="col-form-label">Nombre de contacto del cliente</label>
@@ -31,13 +28,17 @@
         
         <div class="col-md-6">
             <label for="telefono_cliente" class="col-form-label">Teléfono del cliente</label>
-            <input type="text" class="form-control" name="telefono_cliente" id="telefono_cliente">
+            <input type="text" class="form-control" name="telefono_cliente" id="telefono_cliente" >
         </div>
         
         <div class="col-md-6">
             <label for="correo_electronico_cliente" class="col-form-label">E-Mail del cliente</label>
             <input type="text" class="form-control" name="correo_electronico_cliente" id="correo_electronico_cliente">
         </div>
+
+        <div class="row flex-nowrap bg-dark text-light">
+            <button type="submit" class="btn btn-primary">></button>
+        </div>  
         
     </form>
 </div>

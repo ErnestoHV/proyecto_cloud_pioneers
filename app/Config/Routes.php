@@ -30,6 +30,7 @@ $routes->get('login', 'LoginController::index');
 ///////////////////////////////////////////////////////////////
 //Rutas para direccionar al usuario a la vista de Administrador
 $routes->get('/administrador/vista_administrador', 'AdminController::index');
+
 ////////////////////////////////
 ///OPERACIONES ADMIN: CLIENTE///
 ////////////////////////////////
@@ -41,16 +42,27 @@ $routes->get('/administrador/vista_administrador_cruds_clientes', 'AdminControll
 ///Cliente: C R U D S///
 ////////////////////////
 
-//Ruta para el alta de clientes
-$routes->get('/administrador/vista_administrador_alta_clientes','AdminController::admin_cruds_clientes_alta');
-//Ruta para el borrado de clientes
-//Ruta para la edición de clientes
 
+
+//Ruta para el formulario alta de clientes
+$routes->get('/administrador/vista_administrador_alta_clientes','AdminController::admin_cruds_clientes_alta');
+//Ruta para la alta de clientes
+$routes->post('/administrador/vista_administrador_alta_clientes','AdminController::admin_cruds_clientes_alta_new');
+
+//Ruta para el borrado de clientes
+$routes->get('/administrador/vista_administrador_cruds_clientes/borrar(:num)','AdminController::admin_cruds_clientes_baja/$1');
+//Ruta para la edición de clientes
+$routes->get('/administrador/vista_administrador_modificar_clientes','AdminController::admin_cruds_clientes_modificacion');
 
 ///Rutas para direccionar al usuario a la vista de CRUDS de usuarios dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_usuarios', 'AdminController::admin_cruds_usuarios');
+
+
 ///Rutas para direccionar al usuario a la vista de CRUDS de documentos dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_documentos', 'AdminController::admin_cruds_documentos');
+//Ruta para el borrado de clientes
+$routes->get('/administrador/vista_administrador_cruds_documentos/borrar(:num)','AdminController::admin_cruds_documentos_baja/$1');
+
 ///Rutas para direccionar al usuario a la vista de CRUDS de ensayos dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_ensayos', 'AdminController::admin_cruds_ensayos');
 ///Rutas para direccionar al usuario a la vista de servicios de Administrador

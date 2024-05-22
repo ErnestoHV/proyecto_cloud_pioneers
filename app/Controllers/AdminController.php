@@ -18,7 +18,7 @@ class AdminController extends BaseController
         // echo 'Route= /AdminController::index || Controller=AdminController';
         // echo "<h1>AdminController</h1>";
         helper(['form']);
-        return view('administrador/vista_administrador');
+        return view('plantilla/plantilla_administrador');
     }
 
     /////////////////////////////
@@ -40,17 +40,41 @@ class AdminController extends BaseController
     //Alta de clientes
     public function admin_cruds_clientes_alta()
     {
-        // $ClienteModel = new ClienteModel();
-        
         return view('administrador/vista_administrador_alta_clientes');
     }
 
+    public function admin_cruds_clientes_alta_new()
+    {
+                
+        $ClienteModel = new ClienteModel();
+        $data = (
+        [
+            'nombre_contacto' =>$this->request->getpost('nombre_contacto'),
+            'razon_social ' =>$this->request->getpost('razon_social'),
+            'direccion_cliente' =>$this->request->getpost('direccion_cliente'),
+            'rfc_cliente' =>$this->request->getpost('rfc_cliente'),
+            'telefono_cliente' =>$this->request->getpost('telefono_cliente'),
+            'correo_electronico_cliente' =>$this->request->getpost('correo_electronico_cliente')
+        ]);
+        $ClienteModel->insert($data);
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_clientes'));
+    }
+
     //Borrado de clientes
-    public function admin_cruds_clientes_borrar()
+    public function admin_cruds_clientes_baja($id)
+    {
+        $ClienteModel = new ClienteModel();
+        $ClienteModel->where('id_cliente', $id)->delete($id);
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_clientes'));
+    }
+
+    //Borrado de clientes
+    public function admin_cruds_clientes_modificacion()
     {
 
-        return redirect()->to(base_url('vista_administrador_cruds_clientes'));
+        return redirect()->to(base_url('vista_administrador_modificar_clientes'));
     }
+
 
     /////////////////////////////
     ///Funciones CRUD usuarios///
@@ -88,6 +112,10 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_solicitudes',$datos_solicitudes);
     }
 
+    ///////////////////////////////
+    ///Funciones CRUD documentos///
+    ///////////////////////////////
+
     public function admin_cruds_documentos()
     {
         $DocumentoModel = new DocumentoModel();
@@ -98,7 +126,35 @@ class AdminController extends BaseController
         $datos_documentos =['documentos'=>$resultado_documentos,'estados'=>$resultado_estados];
 
         return view('administrador/vista_administrador_cruds_documentos',$datos_documentos);
+        
     }
+
+    public function admin_cruds_documentos_alta_new()
+    {
+                
+        $DocumentoModel = new DocumentoModel();
+        $data = (
+        [
+            'nombre_documento' =>$this->request->getpost('nombre_documento'),
+            'id_estado ' =>$this->request->getpost('id_estado'),
+            'descripcion_documento' =>$this->request->getpost('descripcion_documento'),
+            'link_documento_plantilla' =>$this->request->getpost('link_documento_plantilla'),
+        ]);
+        $ClienteModel->insert($data);
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_clientes'));
+    }
+
+    //Borrado de clientes
+    public function admin_cruds_documentos_baja($id)
+    {
+        $DocumentoModel = new DocumentoModel();
+        $DocumentoModel->where('id_documento', $id)->delete($id);
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_documentos'));
+    }
+
+    ////////////////////////////
+    ///Funciones CRUD ensayos///
+    ////////////////////////////
 
     public function admin_cruds_ensayos()
     {

@@ -30,7 +30,7 @@
                         <td class="text-start"><?php echo $documento['link_documento_plantilla'];?></td>
                         <td class="text-center"><?php echo $documento['fecha_carga_documento'];?></td>
                         <td class="text-center"><i data-feather="edit"></i></td>
-                        <td class="text-center"><i data-feather="trash-2"></i></td>
+                        <td class="text-center"><a href="<?= base_url('/administrador/vista_administrador_cruds_documentos/borrar'.$documento['id_documento'])?>" onclick="return confirm('¿Está seguro que desea borrar este registro?')"></a><i data-feather="trash-2"></i></td>
                     </tr>
                 <?php endif;?>
             <?php endforeach;?>
