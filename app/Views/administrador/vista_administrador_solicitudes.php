@@ -5,7 +5,7 @@
     <a class="btn btn-success" method="post" href="../formulario_solicitud_servicio/formulario_solicitud_servicio"><h3>Generar solicitud</h3></a>
 </div>   
 
-<table class="table table-dark table-striped table-bordered text-center" width="0%" cellspacing="0">
+<table class="table table-light table-striped table-bordered text-center" width="0%" cellspacing="0">
     <thead>
         <tr>
             <th>Folio</th>						

@@ -25,7 +25,7 @@ class AdminController extends BaseController
     ///Funciones CRUD clientes///
     /////////////////////////////
 
-    //Vista de clientes
+    //Vista de clientes con registro activo
     public function admin_cruds_clientes()
     {
         $ClienteModel = new ClienteModel();
@@ -35,6 +35,27 @@ class AdminController extends BaseController
         $datos_clientes = ['clientes'=>$resultado_clientes];
         return view('administrador/vista_administrador_cruds_clientes',$datos_clientes);
         
+    }
+    //Vista de clientes con registro activo
+    public function admin_clientes_inactivos()
+    {
+        $ClienteModel = new ClienteModel();
+        $resultado_clientes = $ClienteModel->OnlyDeleted()->findAll();
+        
+        
+        $datos_clientes = ['clientes'=>$resultado_clientes];
+        return view('administrador/vista_administrador_clientes_inactivos',$datos_clientes);
+        
+    }
+    //Vista de todos los registros de los clientes
+    public function admin_clientes_todos()
+    {
+        $ClienteModel = new ClienteModel();
+        $resultado_clientes = $ClienteModel->withDeleted()->findAll();
+        
+        
+        $datos_clientes = ['clientes'=>$resultado_clientes];
+        return view('administrador/vista_administrador_clientes_todos',$datos_clientes);
     }
 
     //Alta de clientes
@@ -68,17 +89,29 @@ class AdminController extends BaseController
         return redirect()->to(base_url('administrador/vista_administrador_cruds_clientes'));
     }
 
-    //Borrado de clientes
-    public function admin_cruds_clientes_modificacion()
+    //Edición de clientes
+    public function admin_cruds_clientes_modificacion($id)
     {
+        $ClienteModel = new ClienteModel();
+        $data=[
+            'nombre_contacto' =>$this->request->getpost('nombre_contacto'),
+            'razon_social' =>$this->request->getpost('razon_social'),
+            'direccion_cliente' =>$this->request->getpost('direccion_cliente'),
+            'rfc_cliente' =>$this->request->getpost('rfc_cliente'),
+            'telefono_cliente' =>$this->request->getpost('telefono_cliente'),
+            'correo_electronico_cliente' =>$this->request->getpost('correo_electronico_cliente'),
+        ];
+        $ClienteModel->update($id, $data);
 
-        return redirect()->to(base_url('vista_administrador_modificar_clientes'));
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_clientes'));
     }
 
 
     /////////////////////////////
     ///Funciones CRUD usuarios///
     /////////////////////////////
+
+    //Vista de usuarios
     public function admin_cruds_usuarios()
     {
         
@@ -91,6 +124,12 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
     }
 
+    //////////////////////////////
+    ///Funciones CRUD servicios///
+    //////////////////////////////
+
+
+    //Vista de servicios
     public function admin_servicios()
     {
 
@@ -101,6 +140,10 @@ class AdminController extends BaseController
 
         return view('administrador/vista_administrador_servicios',$datos_servicios);
     }
+
+    ////////////////////////////////
+    ///Funciones CRUD solicitudes///
+    ////////////////////////////////
 
     public function admin_solicitudes()
     {
