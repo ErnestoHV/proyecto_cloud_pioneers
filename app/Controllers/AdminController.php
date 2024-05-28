@@ -71,7 +71,7 @@ class AdminController extends BaseController
         $data = (
         [
             'nombre_contacto' =>$this->request->getpost('nombre_contacto'),
-            'razon_social ' =>$this->request->getpost('razon_social'),
+            'razon_social' =>$this->request->getpost('razon_social'),
             'direccion_cliente' =>$this->request->getpost('direccion_cliente'),
             'rfc_cliente' =>$this->request->getpost('rfc_cliente'),
             'telefono_cliente' =>$this->request->getpost('telefono_cliente'),
