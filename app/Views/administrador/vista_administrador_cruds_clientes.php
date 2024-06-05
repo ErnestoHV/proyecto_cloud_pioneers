@@ -16,10 +16,11 @@
         
     </div>
 </div>
+<br>
 <div>
     <h5 class="">Registros de clientes ACTIVOS</h5>
 </div>
-
+<br>
 <table class="table table-light table-striped table-bordered text-center" width="0%" cellspacing="0">
     <thead>
         <tr>

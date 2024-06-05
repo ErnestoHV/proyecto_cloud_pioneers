@@ -15,12 +15,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <div class="container-fluid">
             <div class="row flex-nowrap">
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-warning min-vh-100">
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" id="barra_lateral_abatible">
+                    <div>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#barra_lateral_abatible" role="button" aria-expanded="true" aria-controls="barra_lateral_abatible">Toggle first element</a>
+                    </div>
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-warning min-vh-100 collapse collapse-horizontal" id="barra_lateral_abatible">
                         <h3>
                             <img src="../logos_LIEE/LIEE_Logo.png" alt="img" class="img-fluid">
                         </h3>
-                        
                         <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-light text-decoration-none">
                             <span class="fs-5 d-none d-sm-inline text-warning">Menu</span>
                         </a>
@@ -69,9 +71,9 @@
                     </div>
                 </div>
                 <div class="column py-3">
-                        <h3>
+                        <!-- <h3>
                             <img src="../logos_LIEE/LIEE_Logo.png" alt="img" class="img-fluid">LIEE
-                        </h3>
+                        </h3> -->
                         
                         <?php
                             echo $this->renderSection('vista_administrador');

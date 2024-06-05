@@ -124,6 +124,27 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
     }
 
+    //Alta de usuarios
+    public function admin_cruds_usuarios_alta()
+    {
+        return view('administrador/vista_administrador_alta_usuarios');
+    }
+
+    public function admin_cruds_usuarios_alta_new()
+    {
+        $UserModel = new UserModel();
+        $data = (
+        [
+            'nombre_usuario' =>$this->request->getpost('nombre_usuario'),
+            'apellidos_usuario' =>$this->request->getpost('apellidos_usuario'),
+            'id_rol' =>$this->request->getpost('id_rol'),
+            'correo_electronico' =>$this->request->getpost('correo_electronico'),
+            'contrasena_usuario' =>$this->request->getpost('contrasena_usuario')
+        ]);
+        $UserModel->insert($data);
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_usuarios'));
+    }
+
     //////////////////////////////
     ///Funciones CRUD servicios///
     //////////////////////////////

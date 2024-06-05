@@ -59,14 +59,29 @@ $routes->get('/administrador/vista_administrador_cruds_clientes/borrar(:num)','A
 //Ruta para la edición de clientes
 $routes->post('vista_administrador_modificar_clientes/(:any)', 'AdminController::admin_cruds_clientes_modificacion/$1');
 
-
 ///////////////////////////
 ///VISTA ADMIN: USUARIOS///
 ///////////////////////////
 
 ///Rutas para direccionar al usuario a la vista de CRUDS de usuarios dentro de la vista Administrador
 $routes->get('/administrador/vista_administrador_cruds_usuarios', 'AdminController::admin_cruds_usuarios');
+//Ruta para direccionar al usuario a la vista de usuarios con un registro inactivo (en la BDD) dentro de la vista de Administrador
+$routes->get('/administrador/vista_administrador_usuarios_inactivos', 'AdminController::admin_usuarios_inactivos');
+//Ruta para direccionar al usuario a la vista de usuarios con todos los registros (activos e inactivos) dentro de la vista de Administrador
+$routes->get('/administrador/vista_administrador_usuarios_todos', 'AdminController::admin_usuarios_todos');
 
+////////////////////////
+///Usuario: C R U D S///
+////////////////////////
+
+//Ruta para el formulario alta de usuarios
+$routes->get('/administrador/vista_administrador_alta_usuarios','AdminController::admin_cruds_usuarios_alta');
+//Ruta para la alta de usuarios
+$routes->post('/administrador/vista_administrador_alta_usuarios','AdminController::admin_cruds_usuarios_alta_new');
+//Ruta para el borrado de usuarios
+$routes->get('/administrador/vista_administrador_cruds_usuarios/borrar(:num)','AdminController::admin_cruds_usuarios_baja/$1');
+//Ruta para la edición de usuarios
+$routes->post('vista_administrador_modificar_usuarios/(:any)', 'AdminController::admin_cruds_usuarios_modificacion/$1');
 
 ////////////////////////////
 ///VISTA ADMIN: DOCUMENTO///

@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
                         <button class="btn btn-primary" type="submit">Editar</button>
                     </div>
                 </form>

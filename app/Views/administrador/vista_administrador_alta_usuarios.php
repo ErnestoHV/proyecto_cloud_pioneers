@@ -2,7 +2,7 @@
 <?php echo $this->section('vista_administrador');?>
 
 <div>
-    <h1>Alta cliente</h1>
+    <h1>Registro de usuarios</h1>
 
     <form method="post" class="row g-3"  action="<?php base_url('vista_administrador_alta_usuarios'); ?>">
 
@@ -30,9 +30,10 @@
             <label for="rfc_cliente" class="col-form-label">Contraseña temporal para el usuario</label>
             <input type="text" class="form-control" name="contrasena_usuario" id="contrasena_usuario">
         </div>
-
-        <div class="row flex-nowrap bg-dark text-light">
-            <button type="submit" class="btn btn-primary">></button>
+        <div>
+        </div>
+        <div class="row flex-nowrap text-light">
+            <button type="submit" class="btn btn-primary">Registrar usuario</button>
         </div>  
         
     </form>
