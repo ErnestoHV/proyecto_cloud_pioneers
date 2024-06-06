@@ -114,7 +114,6 @@ class AdminController extends BaseController
     //Vista de usuarios
     public function admin_cruds_usuarios()
     {
-        
         $UserModel = new UserModel();
         $RolModel = new RolModel();
         $resultado_usuarios = $UserModel->findAll(); 
@@ -124,12 +123,16 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
     }
 
-    //Alta de usuarios
+    //Formulario de alta de usuarios
     public function admin_cruds_usuarios_alta()
     {
-        return view('administrador/vista_administrador_alta_usuarios');
+        $RolModel = new RolModel();
+        $resultado_roles = $RolModel->findAll();
+        $datos_roles =['roles'=>$resultado_roles ];
+        return view('administrador/vista_administrador_alta_usuarios',$datos_roles);
     }
 
+    //Alta de usuarios
     public function admin_cruds_usuarios_alta_new()
     {
         $UserModel = new UserModel();
@@ -142,6 +145,30 @@ class AdminController extends BaseController
             'contrasena_usuario' =>$this->request->getpost('contrasena_usuario')
         ]);
         $UserModel->insert($data);
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_usuarios'));
+    }
+
+    //Borrado de clientes
+    public function admin_cruds_usuarios_baja($id)
+    {
+        $UserModel = new UserModel();
+        $UserModel->where('id_usuario', $id)->delete($id);
+        return redirect()->to(base_url('administrador/vista_administrador_cruds_usuarios'));
+    }
+
+    //Edición de clientes
+    public function admin_cruds_usuarios_modificacion($id)
+    {
+        $UserModel = new UserModel();
+        $data=[
+            'nombre_usuario' =>$this->request->getpost('nombre_usuario'),
+            'apellidos_usuario' =>$this->request->getpost('apellidos_usuario'),
+            'direccion_cliente' =>$this->request->getpost('direccion_cliente'),
+            'id_rol' =>$this->request->getpost('id_rol'),
+            'correo_electronico' =>$this->request->getpost('correo_electronico')
+        ];
+        $UserModel->update($id, $data);
+        
         return redirect()->to(base_url('administrador/vista_administrador_cruds_usuarios'));
     }
 

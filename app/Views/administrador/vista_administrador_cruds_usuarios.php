@@ -27,9 +27,10 @@
                         <td class="text-start"><?php echo $usuario['apellidos_usuario'];?></td>
                         <td class="text-start"><?php echo $rol['nombre_rol'];?></td>
                         <td class="text-start"><?php echo $usuario['correo_electronico'];?></td>
-                        <td><i data-feather="edit"></i></td>
-                        <td><i data-feather="trash-2"></i></td>
+                        <td><a href="<?php echo base_url('vista_administrador_modificar_usuarios');?>" data-bs-toggle="modal" data-bs-target="#modalEditarUsuario<?php echo $usuario['id_usuario'];?>" type="button" class="btn"><i data-feather="edit"></i></a></td>
+                        <td><a href="<?= base_url('/administrador/vista_administrador_cruds_usuarios/borrar'.$usuario['id_usuario'])?>" onclick="return confirm('¿Está seguro que desea borrar este registro?')" class="btn"><i data-feather="trash-2"></i></a></td>
                     </tr>
+                    <?php include('vista_administrador_modificar_usuarios.php')?>
                 <?php endif; ?>    
             <?php endforeach;?>
         <?php endforeach;?>
