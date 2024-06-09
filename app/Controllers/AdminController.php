@@ -21,8 +21,12 @@ class AdminController extends BaseController
         return view('plantilla/plantilla_administrador');
     }
 
+    //////////////////////////////////////////////////////////////////////////////////
+    ///                     C   L   I   E   N   T   E   S                          ///
+    //////////////////////////////////////////////////////////////////////////////////
+    
     /////////////////////////////
-    ///Funciones CRUD clientes///
+    ///  Vistas CRUD clientes ///
     /////////////////////////////
 
     //Vista de clientes con registro activo
@@ -36,7 +40,7 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_cruds_clientes',$datos_clientes);
         
     }
-    //Vista de clientes con registro activo
+    //Vista de clientes con registro inactivo
     public function admin_clientes_inactivos()
     {
         $ClienteModel = new ClienteModel();
@@ -58,12 +62,18 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_clientes_todos',$datos_clientes);
     }
 
-    //Alta de clientes
+    //Formulario de alta de clientes
     public function admin_cruds_clientes_alta()
     {
         return view('administrador/vista_administrador_alta_clientes');
     }
 
+    
+    /////////////////////////////
+    ///Funciones CRUD clientes///
+    /////////////////////////////
+
+    //Alta de clientes
     public function admin_cruds_clientes_alta_new()
     {
                 
@@ -106,10 +116,9 @@ class AdminController extends BaseController
         return redirect()->to(base_url('administrador/vista_administrador_cruds_clientes'));
     }
 
-
-    /////////////////////////////
-    ///Funciones CRUD usuarios///
-    /////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////
+    ///                     U   S   U   A   R   I   O   S                          ///
+    //////////////////////////////////////////////////////////////////////////////////
 
     //Vista de usuarios
     public function admin_cruds_usuarios()
@@ -123,6 +132,30 @@ class AdminController extends BaseController
         return view('administrador/vista_administrador_cruds_usuarios',$datos_usuarios);
     }
 
+    //Vista de usuarios con registro inactivo
+    public function admin_usuarios_inactivos()
+    {
+        $UserModel = new UserModel();
+        $RolModel = new RolModel();
+        $resultado_usuarios = $UserModel->OnlyDeleted()->findAll();
+        $resultado_roles = $RolModel->findAll();
+        
+        $datos_usuarios = ['usuarios'=>$resultado_usuarios, 'roles'=>$resultado_roles];
+        return view('administrador/vista_administrador_usuarios_inactivos',$datos_usuarios);
+    }
+
+    //Vista de todos los registros de los clientes
+    public function admin_usuarios_todos()
+    {
+        $UserModel = new UserModel();
+        $RolModel = new RolModel();
+        $resultado_usuarios = $UserModel->withDeleted()->findAll();
+        $resultado_roles = $RolModel->findAll();
+        
+        $datos_usuarios = ['usuarios'=>$resultado_usuarios, 'roles'=>$resultado_roles];
+        return view('administrador/vista_administrador_usuarios_todos',$datos_usuarios);
+    }
+
     //Formulario de alta de usuarios
     public function admin_cruds_usuarios_alta()
     {
@@ -131,6 +164,11 @@ class AdminController extends BaseController
         $datos_roles =['roles'=>$resultado_roles ];
         return view('administrador/vista_administrador_alta_usuarios',$datos_roles);
     }
+
+    /////////////////////////////
+    ///Funciones CRUD usuarios///
+    /////////////////////////////
+
 
     //Alta de usuarios
     public function admin_cruds_usuarios_alta_new()
