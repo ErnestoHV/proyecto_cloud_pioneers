@@ -24,7 +24,7 @@
 
                         <label for="direccion_cliente" class="col-form-label"><h3>Rol del usuario</h3></label>
                         <select class="form-select" aria-label="Default select example" name="id_rol" id="id_rol">
-                            <option></option>
+                            <option selected disabled hidden>Seleccione un rol</option>
                             <?php foreach ($roles as $rol): ?>
                                 <?php echo '<option value="'.$rol['id_rol'].'">'.$rol['nombre_rol'].'</option>';?>
                             <?php endforeach;?>
@@ -34,7 +34,7 @@
 
                     <div class="mb-3">
 
-                        <label for="correo_electronico" class="col-form-label"><h3>RFC del cliente</h3></label>
+                        <label for="correo_electronico" class="col-form-label"><h3>Correo electrónico del usuario</h3></label>
                         <input type="text" class="form-control" name="correo_electronico" id="correo_electronico" value="<?= $usuario['correo_electronico']; ?>">
 
                     </div>
