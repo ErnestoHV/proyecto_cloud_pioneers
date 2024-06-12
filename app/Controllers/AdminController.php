@@ -180,7 +180,7 @@ class AdminController extends BaseController
             'apellidos_usuario' =>$this->request->getpost('apellidos_usuario'),
             'id_rol' =>$this->request->getpost('id_rol'),
             'correo_electronico' =>$this->request->getpost('correo_electronico'),
-            'contrasena_usuario' =>$this->request->getpost('contrasena_usuario')
+            'contrasena_usuario' =>md5($this->request->getpost('contrasena_usuario'))
         ]);
         $UserModel->insert($data);
         return redirect()->to(base_url('administrador/vista_administrador_cruds_usuarios'));

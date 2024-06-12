@@ -20,7 +20,7 @@ class LoginController extends Controller
         $session = session();
         $userModel = new UserModel();
         $email = $this->request->getVar('uEmail');
-        $password = $this->request->getVar('uPassword');
+        $password = md5($this->request->getVar('uPassword'));
 
         $data = $userModel->where('correo_electronico', $email)->first();
         
