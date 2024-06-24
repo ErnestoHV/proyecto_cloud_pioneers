@@ -26,7 +26,7 @@ class LoginController extends Controller
         
         if($data)
         {
-            $pass = $data['contrasena_usuario'];
+            $pass = md5($data['contrasena_usuario']);
             if($pass == $password)
             {
                 $ses_data = 
