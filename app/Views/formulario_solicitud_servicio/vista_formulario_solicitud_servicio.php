@@ -91,102 +91,111 @@
                     <tr>
                         <td>A</td>
                         <td>030/7.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Variación del flujo luminoso total nominal</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A</td>
                         <td>031/8.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Variación del flujo luminoso nominal</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.1</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Temperatura de color correlacionado (TCC)</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A*</td>
                         <td>031/8.1</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Temperatura de color correlacionada (TCC)</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Flujo luminoso total mínimo mantenido</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A</td>
                         <td>031/8.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Flujo luminoso total mantenido</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.1</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Índice de rendimiento de color (IRC)</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A*</td>
                         <td>031/8.1</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Índice de rendimiento de color (IRC)</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Factor de potencia (PU)</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A</td>
                         <td>031/8.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Factor de potencia (PU)</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.1</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Distribución espacial de luz</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A*</td>
                         <td>031/8.1</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Distorsión armónica total en corriente</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Ciclo de choque térmico</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A</td>
                         <td>031/8.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Flujo luminoso de deslumbramiento</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Ciclo de conmutación</td>
                         <td><input type="checkbox" name="" id=""></td>
                         <td>A</td>
                         <td>031/8.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Resistencia al choque térmico y a la conmutación</td>
                         <td><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.1</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Sobretensiones transistorias</td>
                         <td><input type="checkbox" name="" id=""></td>
-                        <td>A*</td>
-                        <td>031/8.1</td>
-                        <td>Eficacia luminosa</td>
-                        <td><input type="checkbox" name="" id=""></td>
+                        <td rowspan="5">A*</td>
+                        <td rowspan="5">031/8.1</td>
+                        <td rowspan="5">Resistencia a las descargas atmosféricas</td>
+                        <td rowspan="5"><input type="checkbox" name="" id=""></td>
                     </tr>
                     <tr>
                         <td>A</td>
                         <td>030/7.2</td>
-                        <td>Eficacia luminosa</td>
+                        <td>Distorsión armónica total</td>
                         <td><input type="checkbox" name="" id=""></td>
-                        <td>A</td>
-                        <td>031/8.2</td>
-                        <td>Eficacia luminosa</td>
-                        <td><input type="checkbox" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">OTRO</td>
+                    </tr>
+                    <tr>
+                        <td>S/A</td>
+                        <td>N/A</td>
+                        <td rowspan="2"></td>
+                        <td rowspan="2"><input type="checkbox" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
