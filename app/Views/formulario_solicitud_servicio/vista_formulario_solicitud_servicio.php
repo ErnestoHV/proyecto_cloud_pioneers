@@ -63,7 +63,7 @@
                 <input type="text" class="form-control" name="correo_electronico_cliente" id="correo_electronico_cliente">
             </div>
         </div>
-
+        <!-- Tabla de selección de ensayos -->
         <div>
             <table class="table table-info table-bordered">
                 <thead>
@@ -198,6 +198,66 @@
                         <td></td>
                     </tr>
                 </tbody>
+            </table>
+        </div>
+
+        <!-- Tabla de información del especimen -->
+
+        <div>
+            <table class="table table-info table-bordered">
+                <thead>
+                    <th colspan="3">Datos del especímen bajo prueba</th>
+                </thead>
+                <tr>
+                    <td>Nombre del especímen bajo prueba</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Descripción</td>
+                    <td>Lámpara</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>Luminario</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Uso del espécimen bajo prueba</td>
+                    <td>Exterior</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>Interior</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>Cantidad</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Marca y modelo</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Número de serie</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Tensión eléctrica de operación (V)*</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Potencia eléctrica de operación (W)*</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Valor de flujo luminoso nominal (lm)*</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Temperatura de color relacionada (°K)*</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
             </table>
         </div>
     </form>
