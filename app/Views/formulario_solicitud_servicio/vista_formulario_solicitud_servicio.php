@@ -258,6 +258,73 @@
                     <td>Temperatura de color relacionada (°K)*</td>
                     <td colspan="3"><input type="text"></td>
                 </tr>
+                <tr>
+                    <td>Índice de rendimiento de color*</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Horas de vida útil de la lámpara (h)*</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Factor de potencia nominal*</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Tipo de material de la carcasa</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Tipo de material del reflector</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Tipo de montaje</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td rowspan="4">Tipo de controlador (drive):</td>
+                </tr>
+                <tr>
+                    <td>Integrada al módulo led</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>Separada del módulo de led</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>Fuera del luminario</td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>Posición del luminario en grados con respecto a la horizontal (importante para la realización de las pruebas del fotogoniómetro): </td>
+                    <td colspan="3"><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td>Fabricante de la luminaria (si el cliente es el fabricante no considerar este punto)</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Número de módulos de tarjeras LED del luminario y/o lámpara.</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Número de LEDs por módulo de tarjetas LED del luminario/lámpara.</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Número de catálogo del luminario y/o lámpara.</td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Dimensiones del luminario y/o lámpara. (largo x ancho x alto) </td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="3"><input type="text"></td>
+                </tr>
             </table>
         </div>
     </form>
